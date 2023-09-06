@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://buxtwebuha5um"]
+
+[ext_resource type="Shader" uid="uid://dx5wnuch6hx6b" path="res://shader/7-segment_display.tres" id="1_h0ne5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yhdd2"]
+shader = ExtResource("1_h0ne5")
+shader_parameter/SkewAngle = 0.0
+shader_parameter/Size = 256.0
+shader_parameter/SegmentWidth = 0.1
+shader_parameter/SegmentOffsetRatio = 0.5
+shader_parameter/Number = 0
+shader_parameter/ON = true
+shader_parameter/SegmentOnColor = Color(1, 0, 0, 1)
+shader_parameter/SegmentOffColor = Color(1, 1, 1, 1)
+shader_parameter/BackgroundColor = Color(0, 0, 0, 1)
+
+[node name="test" type="Node"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_yhdd2")

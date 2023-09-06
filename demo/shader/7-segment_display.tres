@@ -227,6 +227,17 @@ size = Vector2(962.171, 786.656)
 expression = "// The include directive does not work correctly in visual shader.
 //#include \"segment_number_utils.gdshaderinc\"
 
+const vec2 ratio = vec2(3.0, 5.0);
+const vec2 ratio_normalized = vec2(1.0, ratio.y/ratio.x);
+
+const vec2 p1 = vec2(0.5, 0.5) / ratio;
+const vec2 p2 = vec2(2.5, 0.5) / ratio;
+const vec2 p3 = vec2(0.5, 2.5) / ratio;
+const vec2 p4 = vec2(2.5, 2.5) / ratio;
+const vec2 p5 = vec2(0.5, 4.5) / ratio;
+const vec2 p6 = vec2(2.5, 4.5) / ratio;
+
+
 vec2 skewed_uv(vec2 uv, float theta) {
 	float x = uv.x - uv.y * tan(theta);
 	float y = uv.y / cos(theta);
@@ -266,10 +277,10 @@ bool in_triangle(vec2 st, float theta, float width) {
 	return is_in_triangle;
 }
 
-bool in_horizontal_segment(vec2 uv, vec2 p0, float len, float width, vec2 ratio) {
+bool in_horizontal_segment(vec2 uv, vec2 p0, vec2 offset, float len, float width) {
 	bool is_in_segment = false;
 	
-	vec2 st = (uv - p0) * ratio;
+	vec2 st = (uv - p0) * ratio_normalized - offset;
 	is_in_segment = is_in_segment || in_hline(st, len, width);
 	is_in_segment = is_in_segment || in_triangle(st, -PI, width);
 	is_in_segment = is_in_segment || in_triangle(st - vec2(len, 0.0), 0.0, width);
@@ -277,10 +288,10 @@ bool in_horizontal_segment(vec2 uv, vec2 p0, float len, float width, vec2 ratio)
 	return is_in_segment;	
 }
 
-bool in_vertical_segment(vec2 uv, vec2 p0, float len, float width, vec2 ratio) {
+bool in_vertical_segment(vec2 uv, vec2 p0, vec2 offset, float len, float width) {
 	bool is_in_segment = false;
 	
-	vec2 st = (uv - p0) * ratio;
+	vec2 st = (uv - p0) * ratio_normalized - offset;
 	is_in_segment = is_in_segment || in_vline(st, len, width);
 	is_in_segment = is_in_segment || in_triangle(st, PI/2.0, width);
 	is_in_segment = is_in_segment || in_triangle(st - vec2(0.0, len), -PI/2.0, width);
@@ -297,30 +308,20 @@ bool any_7(bool s1, bool s2, bool s3, bool s4, bool s5, bool s6, bool s7) {
 parameter_name = "SkewAngle"
 
 [sub_resource type="VisualShaderNodeExpression" id="VisualShaderNodeExpression_lojpl"]
-size = Vector2(1133.25, 903.719)
-expression = "vec2 ratio = vec2(3.0, 5.0);
-vec2 ratio_normalized = vec2(1.0, ratio.y/ratio.x);
-
-float segment_offset = (1.0 + segment_offset_ratio) * segment_width / 2.0;
+size = Vector2(1018.3, 660.51)
+expression = "float segment_offset = (1.0 + segment_offset_ratio) * segment_width / 2.0;
 float segment_length = 2.0/3.0 - 2.0 * segment_offset;
 
-vec2 p1 = vec2(0.5, 0.5) / ratio;
-vec2 p2 = vec2(2.5, 0.5) / ratio;
-vec2 p3 = vec2(0.5, 2.5) / ratio;
-vec2 p4 = vec2(2.5, 2.5) / ratio;
-vec2 p5 = vec2(0.5, 4.5) / ratio;
-vec2 p6 = vec2(2.5, 4.5) / ratio;
+vec2 h_offset = vec2(segment_offset, 0.0);
+vec2 v_offset = vec2(0.0, segment_offset);
 
-vec2 h_offset = vec2(segment_offset, 0.0) / ratio_normalized;
-vec2 v_offset = vec2(0.0, segment_offset) / ratio_normalized;
-
-is_in_segment_a = in_horizontal_segment(uv, p1 + h_offset, segment_length, segment_width, ratio_normalized);
-is_in_segment_b = in_vertical_segment(uv, p2 + v_offset, segment_length, segment_width, ratio_normalized);
-is_in_segment_c = in_vertical_segment(uv, p4 + v_offset, segment_length, segment_width, ratio_normalized);
-is_in_segment_d = in_horizontal_segment(uv, p5 + h_offset, segment_length, segment_width, ratio_normalized);
-is_in_segment_e = in_vertical_segment(uv, p3 + v_offset, segment_length, segment_width, ratio_normalized);
-is_in_segment_f = in_vertical_segment(uv, p1 + v_offset, segment_length, segment_width, ratio_normalized);
-is_in_segment_g = in_horizontal_segment(uv, p3 + h_offset, segment_length, segment_width, ratio_normalized);
+is_in_segment_a = in_horizontal_segment(uv, p1, h_offset, segment_length, segment_width);
+is_in_segment_b = in_vertical_segment(uv, p2, v_offset, segment_length, segment_width);
+is_in_segment_c = in_vertical_segment(uv, p4, v_offset, segment_length, segment_width);
+is_in_segment_d = in_horizontal_segment(uv, p5, h_offset, segment_length, segment_width);
+is_in_segment_e = in_vertical_segment(uv, p3, v_offset, segment_length, segment_width);
+is_in_segment_f = in_vertical_segment(uv, p1, v_offset, segment_length, segment_width);
+is_in_segment_g = in_horizontal_segment(uv, p3, h_offset, segment_length, segment_width);
 "
 
 [sub_resource type="VisualShaderNodeSwitch" id="VisualShaderNodeSwitch_6dxnb"]
@@ -405,6 +406,17 @@ uniform vec4 BackgroundColor : source_color = vec4(0.000000, 0.000000, 0.000000,
 	// The include directive does not work correctly in visual shader.
 	//#include \"segment_number_utils.gdshaderinc\"
 	
+	const vec2 ratio = vec2(3.0, 5.0);
+	const vec2 ratio_normalized = vec2(1.0, ratio.y/ratio.x);
+	
+	const vec2 p1 = vec2(0.5, 0.5) / ratio;
+	const vec2 p2 = vec2(2.5, 0.5) / ratio;
+	const vec2 p3 = vec2(0.5, 2.5) / ratio;
+	const vec2 p4 = vec2(2.5, 2.5) / ratio;
+	const vec2 p5 = vec2(0.5, 4.5) / ratio;
+	const vec2 p6 = vec2(2.5, 4.5) / ratio;
+	
+	
 	vec2 skewed_uv(vec2 uv, float theta) {
 		float x = uv.x - uv.y * tan(theta);
 		float y = uv.y / cos(theta);
@@ -444,10 +456,10 @@ uniform vec4 BackgroundColor : source_color = vec4(0.000000, 0.000000, 0.000000,
 		return is_in_triangle;
 	}
 	
-	bool in_horizontal_segment(vec2 uv, vec2 p0, float len, float width, vec2 ratio) {
+	bool in_horizontal_segment(vec2 uv, vec2 p0, vec2 offset, float len, float width) {
 		bool is_in_segment = false;
 		
-		vec2 st = (uv - p0) * ratio;
+		vec2 st = (uv - p0) * ratio_normalized - offset;
 		is_in_segment = is_in_segment || in_hline(st, len, width);
 		is_in_segment = is_in_segment || in_triangle(st, -PI, width);
 		is_in_segment = is_in_segment || in_triangle(st - vec2(len, 0.0), 0.0, width);
@@ -455,10 +467,10 @@ uniform vec4 BackgroundColor : source_color = vec4(0.000000, 0.000000, 0.000000,
 		return is_in_segment;	
 	}
 	
-	bool in_vertical_segment(vec2 uv, vec2 p0, float len, float width, vec2 ratio) {
+	bool in_vertical_segment(vec2 uv, vec2 p0, vec2 offset, float len, float width) {
 		bool is_in_segment = false;
 		
-		vec2 st = (uv - p0) * ratio;
+		vec2 st = (uv - p0) * ratio_normalized - offset;
 		is_in_segment = is_in_segment || in_vline(st, len, width);
 		is_in_segment = is_in_segment || in_triangle(st, PI/2.0, width);
 		is_in_segment = is_in_segment || in_triangle(st - vec2(0.0, len), -PI/2.0, width);
@@ -607,29 +619,19 @@ void fragment() {
 	n_out8p5 = false;
 	n_out8p6 = false;
 	{
-		vec2 ratio = vec2(3.0, 5.0);
-		vec2 ratio_normalized = vec2(1.0, ratio.y/ratio.x);
-		
 		float segment_offset = (1.0 + n_out72p0) * n_out7p0 / 2.0;
 		float segment_length = 2.0/3.0 - 2.0 * segment_offset;
 		
-		vec2 p1 = vec2(0.5, 0.5) / ratio;
-		vec2 p2 = vec2(2.5, 0.5) / ratio;
-		vec2 p3 = vec2(0.5, 2.5) / ratio;
-		vec2 p4 = vec2(2.5, 2.5) / ratio;
-		vec2 p5 = vec2(0.5, 4.5) / ratio;
-		vec2 p6 = vec2(2.5, 4.5) / ratio;
+		vec2 h_offset = vec2(segment_offset, 0.0);
+		vec2 v_offset = vec2(0.0, segment_offset);
 		
-		vec2 h_offset = vec2(segment_offset, 0.0) / ratio_normalized;
-		vec2 v_offset = vec2(0.0, segment_offset) / ratio_normalized;
-		
-		n_out8p0 = in_horizontal_segment(n_out46p0, p1 + h_offset, segment_length, n_out7p0, ratio_normalized);
-		n_out8p1 = in_vertical_segment(n_out46p0, p2 + v_offset, segment_length, n_out7p0, ratio_normalized);
-		n_out8p2 = in_vertical_segment(n_out46p0, p4 + v_offset, segment_length, n_out7p0, ratio_normalized);
-		n_out8p3 = in_horizontal_segment(n_out46p0, p5 + h_offset, segment_length, n_out7p0, ratio_normalized);
-		n_out8p4 = in_vertical_segment(n_out46p0, p3 + v_offset, segment_length, n_out7p0, ratio_normalized);
-		n_out8p5 = in_vertical_segment(n_out46p0, p1 + v_offset, segment_length, n_out7p0, ratio_normalized);
-		n_out8p6 = in_horizontal_segment(n_out46p0, p3 + h_offset, segment_length, n_out7p0, ratio_normalized);
+		n_out8p0 = in_horizontal_segment(n_out46p0, p1, h_offset, segment_length, n_out7p0);
+		n_out8p1 = in_vertical_segment(n_out46p0, p2, v_offset, segment_length, n_out7p0);
+		n_out8p2 = in_vertical_segment(n_out46p0, p4, v_offset, segment_length, n_out7p0);
+		n_out8p3 = in_horizontal_segment(n_out46p0, p5, h_offset, segment_length, n_out7p0);
+		n_out8p4 = in_vertical_segment(n_out46p0, p3, v_offset, segment_length, n_out7p0);
+		n_out8p5 = in_vertical_segment(n_out46p0, p1, v_offset, segment_length, n_out7p0);
+		n_out8p6 = in_horizontal_segment(n_out46p0, p3, h_offset, segment_length, n_out7p0);
 		
 	}
 
@@ -873,7 +875,7 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(605.318, -309.368)
+graph_offset = Vector2(-998.501, -304.158)
 mode = 1
 flags/light_only = false
 nodes/vertex/0/position = Vector2(1140, -360)
@@ -919,32 +921,22 @@ nodes/fragment/7/node = SubResource("VisualShaderNodeFloatParameter_q8lyt")
 nodes/fragment/7/position = Vector2(-740, 360)
 nodes/fragment/8/node = SubResource("VisualShaderNodeExpression_lojpl")
 nodes/fragment/8/position = Vector2(-220, 220)
-nodes/fragment/8/size = Vector2(1133.25, 903.719)
+nodes/fragment/8/size = Vector2(1018.3, 660.51)
 nodes/fragment/8/input_ports = "0,3,uv;1,0,segment_width;2,0,segment_offset_ratio;"
 nodes/fragment/8/output_ports = "0,6,is_in_segment_a;1,6,is_in_segment_b;2,6,is_in_segment_c;3,6,is_in_segment_d;4,6,is_in_segment_e;5,6,is_in_segment_f;6,6,is_in_segment_g;"
-nodes/fragment/8/expression = "vec2 ratio = vec2(3.0, 5.0);
-vec2 ratio_normalized = vec2(1.0, ratio.y/ratio.x);
-
-float segment_offset = (1.0 + segment_offset_ratio) * segment_width / 2.0;
+nodes/fragment/8/expression = "float segment_offset = (1.0 + segment_offset_ratio) * segment_width / 2.0;
 float segment_length = 2.0/3.0 - 2.0 * segment_offset;
 
-vec2 p1 = vec2(0.5, 0.5) / ratio;
-vec2 p2 = vec2(2.5, 0.5) / ratio;
-vec2 p3 = vec2(0.5, 2.5) / ratio;
-vec2 p4 = vec2(2.5, 2.5) / ratio;
-vec2 p5 = vec2(0.5, 4.5) / ratio;
-vec2 p6 = vec2(2.5, 4.5) / ratio;
+vec2 h_offset = vec2(segment_offset, 0.0);
+vec2 v_offset = vec2(0.0, segment_offset);
 
-vec2 h_offset = vec2(segment_offset, 0.0) / ratio_normalized;
-vec2 v_offset = vec2(0.0, segment_offset) / ratio_normalized;
-
-is_in_segment_a = in_horizontal_segment(uv, p1 + h_offset, segment_length, segment_width, ratio_normalized);
-is_in_segment_b = in_vertical_segment(uv, p2 + v_offset, segment_length, segment_width, ratio_normalized);
-is_in_segment_c = in_vertical_segment(uv, p4 + v_offset, segment_length, segment_width, ratio_normalized);
-is_in_segment_d = in_horizontal_segment(uv, p5 + h_offset, segment_length, segment_width, ratio_normalized);
-is_in_segment_e = in_vertical_segment(uv, p3 + v_offset, segment_length, segment_width, ratio_normalized);
-is_in_segment_f = in_vertical_segment(uv, p1 + v_offset, segment_length, segment_width, ratio_normalized);
-is_in_segment_g = in_horizontal_segment(uv, p3 + h_offset, segment_length, segment_width, ratio_normalized);
+is_in_segment_a = in_horizontal_segment(uv, p1, h_offset, segment_length, segment_width);
+is_in_segment_b = in_vertical_segment(uv, p2, v_offset, segment_length, segment_width);
+is_in_segment_c = in_vertical_segment(uv, p4, v_offset, segment_length, segment_width);
+is_in_segment_d = in_horizontal_segment(uv, p5, h_offset, segment_length, segment_width);
+is_in_segment_e = in_vertical_segment(uv, p3, v_offset, segment_length, segment_width);
+is_in_segment_f = in_vertical_segment(uv, p1, v_offset, segment_length, segment_width);
+is_in_segment_g = in_horizontal_segment(uv, p3, h_offset, segment_length, segment_width);
 "
 nodes/fragment/9/node = SubResource("VisualShaderNodeSwitch_6dxnb")
 nodes/fragment/9/position = Vector2(1460, -40)
@@ -1113,6 +1105,17 @@ nodes/fragment/74/output_ports = ""
 nodes/fragment/74/expression = "// The include directive does not work correctly in visual shader.
 //#include \"segment_number_utils.gdshaderinc\"
 
+const vec2 ratio = vec2(3.0, 5.0);
+const vec2 ratio_normalized = vec2(1.0, ratio.y/ratio.x);
+
+const vec2 p1 = vec2(0.5, 0.5) / ratio;
+const vec2 p2 = vec2(2.5, 0.5) / ratio;
+const vec2 p3 = vec2(0.5, 2.5) / ratio;
+const vec2 p4 = vec2(2.5, 2.5) / ratio;
+const vec2 p5 = vec2(0.5, 4.5) / ratio;
+const vec2 p6 = vec2(2.5, 4.5) / ratio;
+
+
 vec2 skewed_uv(vec2 uv, float theta) {
 	float x = uv.x - uv.y * tan(theta);
 	float y = uv.y / cos(theta);
@@ -1152,10 +1155,10 @@ bool in_triangle(vec2 st, float theta, float width) {
 	return is_in_triangle;
 }
 
-bool in_horizontal_segment(vec2 uv, vec2 p0, float len, float width, vec2 ratio) {
+bool in_horizontal_segment(vec2 uv, vec2 p0, vec2 offset, float len, float width) {
 	bool is_in_segment = false;
 	
-	vec2 st = (uv - p0) * ratio;
+	vec2 st = (uv - p0) * ratio_normalized - offset;
 	is_in_segment = is_in_segment || in_hline(st, len, width);
 	is_in_segment = is_in_segment || in_triangle(st, -PI, width);
 	is_in_segment = is_in_segment || in_triangle(st - vec2(len, 0.0), 0.0, width);
@@ -1163,10 +1166,10 @@ bool in_horizontal_segment(vec2 uv, vec2 p0, float len, float width, vec2 ratio)
 	return is_in_segment;	
 }
 
-bool in_vertical_segment(vec2 uv, vec2 p0, float len, float width, vec2 ratio) {
+bool in_vertical_segment(vec2 uv, vec2 p0, vec2 offset, float len, float width) {
 	bool is_in_segment = false;
 	
-	vec2 st = (uv - p0) * ratio;
+	vec2 st = (uv - p0) * ratio_normalized - offset;
 	is_in_segment = is_in_segment || in_vline(st, len, width);
 	is_in_segment = is_in_segment || in_triangle(st, PI/2.0, width);
 	is_in_segment = is_in_segment || in_triangle(st - vec2(0.0, len), -PI/2.0, width);
