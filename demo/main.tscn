@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://7seg_display_settings.gd" id="1_pt6dx"]
 [ext_resource type="Shader" uid="uid://dx5wnuch6hx6b" path="res://shader/7-segment_display.tres" id="2_2c3a6"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lm65f"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_feonl"]
 shader = ExtResource("2_2c3a6")
 shader_parameter/SkewAngle = 0.0
-shader_parameter/Size = 64
+shader_parameter/Size = 64.0
 shader_parameter/SegmentWidth = 0.1
 shader_parameter/SegmentOffsetRatio = 0.5
 shader_parameter/Number = 0
@@ -15,10 +15,10 @@ shader_parameter/SegmentOnColor = Color(1, 0, 0, 1)
 shader_parameter/SegmentOffColor = Color(0.498039, 0.498039, 0.498039, 1)
 shader_parameter/BackgroundColor = Color(0, 0, 0, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_w40le"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kp2oy"]
 shader = ExtResource("2_2c3a6")
 shader_parameter/SkewAngle = 0.0
-shader_parameter/Size = 64
+shader_parameter/Size = 64.0
 shader_parameter/SegmentWidth = 0.1
 shader_parameter/SegmentOffsetRatio = 0.5
 shader_parameter/Number = 1
@@ -27,10 +27,10 @@ shader_parameter/SegmentOnColor = Color(1, 0, 0, 1)
 shader_parameter/SegmentOffColor = Color(0.498039, 0.498039, 0.498039, 1)
 shader_parameter/BackgroundColor = Color(0, 0, 0, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_phdjk"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nwjti"]
 shader = ExtResource("2_2c3a6")
 shader_parameter/SkewAngle = 0.0
-shader_parameter/Size = 64
+shader_parameter/Size = 64.0
 shader_parameter/SegmentWidth = 0.1
 shader_parameter/SegmentOffsetRatio = 0.5
 shader_parameter/Number = 2
@@ -39,10 +39,10 @@ shader_parameter/SegmentOnColor = Color(1, 0, 0, 1)
 shader_parameter/SegmentOffColor = Color(0.498039, 0.498039, 0.498039, 1)
 shader_parameter/BackgroundColor = Color(0, 0, 0, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1orog"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8ij4a"]
 shader = ExtResource("2_2c3a6")
 shader_parameter/SkewAngle = 0.0
-shader_parameter/Size = 64
+shader_parameter/Size = 64.0
 shader_parameter/SegmentWidth = 0.1
 shader_parameter/SegmentOffsetRatio = 0.5
 shader_parameter/Number = 3
@@ -51,10 +51,10 @@ shader_parameter/SegmentOnColor = Color(1, 0, 0, 1)
 shader_parameter/SegmentOffColor = Color(0.498039, 0.498039, 0.498039, 1)
 shader_parameter/BackgroundColor = Color(0, 0, 0, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_t4whl"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8ed5n"]
 shader = ExtResource("2_2c3a6")
 shader_parameter/SkewAngle = 0.0
-shader_parameter/Size = 64
+shader_parameter/Size = 64.0
 shader_parameter/SegmentWidth = 0.1
 shader_parameter/SegmentOffsetRatio = 0.5
 shader_parameter/Number = 4
@@ -63,10 +63,10 @@ shader_parameter/SegmentOnColor = Color(1, 0, 0, 1)
 shader_parameter/SegmentOffColor = Color(0.498039, 0.498039, 0.498039, 1)
 shader_parameter/BackgroundColor = Color(0, 0, 0, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_mifgo"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0p88p"]
 shader = ExtResource("2_2c3a6")
 shader_parameter/SkewAngle = 0.0
-shader_parameter/Size = 64
+shader_parameter/Size = 64.0
 shader_parameter/SegmentWidth = 0.1
 shader_parameter/SegmentOffsetRatio = 0.5
 shader_parameter/Number = 5
@@ -75,10 +75,10 @@ shader_parameter/SegmentOnColor = Color(1, 0, 0, 1)
 shader_parameter/SegmentOffColor = Color(0.498039, 0.498039, 0.498039, 1)
 shader_parameter/BackgroundColor = Color(0, 0, 0, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_k4tx5"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ak5vx"]
 shader = ExtResource("2_2c3a6")
 shader_parameter/SkewAngle = 0.0
-shader_parameter/Size = 64
+shader_parameter/Size = 64.0
 shader_parameter/SegmentWidth = 0.1
 shader_parameter/SegmentOffsetRatio = 0.5
 shader_parameter/Number = 6
@@ -87,10 +87,10 @@ shader_parameter/SegmentOnColor = Color(1, 0, 0, 1)
 shader_parameter/SegmentOffColor = Color(0.498039, 0.498039, 0.498039, 1)
 shader_parameter/BackgroundColor = Color(0, 0, 0, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ipbao"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_frbxs"]
 shader = ExtResource("2_2c3a6")
 shader_parameter/SkewAngle = 0.0
-shader_parameter/Size = 64
+shader_parameter/Size = 64.0
 shader_parameter/SegmentWidth = 0.1
 shader_parameter/SegmentOffsetRatio = 0.5
 shader_parameter/Number = 7
@@ -99,10 +99,10 @@ shader_parameter/SegmentOnColor = Color(1, 0, 0, 1)
 shader_parameter/SegmentOffColor = Color(0.498039, 0.498039, 0.498039, 1)
 shader_parameter/BackgroundColor = Color(0, 0, 0, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_fui2j"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3g34u"]
 shader = ExtResource("2_2c3a6")
 shader_parameter/SkewAngle = 0.0
-shader_parameter/Size = 64
+shader_parameter/Size = 64.0
 shader_parameter/SegmentWidth = 0.1
 shader_parameter/SegmentOffsetRatio = 0.5
 shader_parameter/Number = 8
@@ -111,10 +111,10 @@ shader_parameter/SegmentOnColor = Color(1, 0, 0, 1)
 shader_parameter/SegmentOffColor = Color(0.498039, 0.498039, 0.498039, 1)
 shader_parameter/BackgroundColor = Color(0, 0, 0, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lffuy"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wagdf"]
 shader = ExtResource("2_2c3a6")
 shader_parameter/SkewAngle = 0.0
-shader_parameter/Size = 64
+shader_parameter/Size = 64.0
 shader_parameter/SegmentWidth = 0.1
 shader_parameter/SegmentOffsetRatio = 0.5
 shader_parameter/Number = 9
@@ -123,10 +123,10 @@ shader_parameter/SegmentOnColor = Color(1, 0, 0, 1)
 shader_parameter/SegmentOffColor = Color(0.498039, 0.498039, 0.498039, 1)
 shader_parameter/BackgroundColor = Color(0, 0, 0, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_iqvaa"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qgk72"]
 shader = ExtResource("2_2c3a6")
 shader_parameter/SkewAngle = 15.0
-shader_parameter/Size = 64
+shader_parameter/Size = 64.0
 shader_parameter/SegmentWidth = 0.25
 shader_parameter/SegmentOffsetRatio = 0.25
 shader_parameter/Number = 0
@@ -135,10 +135,10 @@ shader_parameter/SegmentOnColor = Color(0.211765, 0.972549, 0, 1)
 shader_parameter/SegmentOffColor = Color(0.435294, 0.435294, 0.435294, 1)
 shader_parameter/BackgroundColor = Color(0, 0, 0, 0)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ult1e"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3mb82"]
 shader = ExtResource("2_2c3a6")
 shader_parameter/SkewAngle = 15.0
-shader_parameter/Size = 64
+shader_parameter/Size = 64.0
 shader_parameter/SegmentWidth = 0.25
 shader_parameter/SegmentOffsetRatio = 0.25
 shader_parameter/Number = 1
@@ -147,10 +147,10 @@ shader_parameter/SegmentOnColor = Color(0.211765, 0.972549, 0, 1)
 shader_parameter/SegmentOffColor = Color(0.435294, 0.435294, 0.435294, 1)
 shader_parameter/BackgroundColor = Color(0, 0, 0, 0)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2cndd"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r8bxy"]
 shader = ExtResource("2_2c3a6")
 shader_parameter/SkewAngle = 15.0
-shader_parameter/Size = 64
+shader_parameter/Size = 64.0
 shader_parameter/SegmentWidth = 0.25
 shader_parameter/SegmentOffsetRatio = 0.25
 shader_parameter/Number = 2
@@ -159,10 +159,10 @@ shader_parameter/SegmentOnColor = Color(0.211765, 0.972549, 0, 1)
 shader_parameter/SegmentOffColor = Color(0.435294, 0.435294, 0.435294, 1)
 shader_parameter/BackgroundColor = Color(0, 0, 0, 0)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_kybir"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m0fxf"]
 shader = ExtResource("2_2c3a6")
 shader_parameter/SkewAngle = 15.0
-shader_parameter/Size = 64
+shader_parameter/Size = 64.0
 shader_parameter/SegmentWidth = 0.25
 shader_parameter/SegmentOffsetRatio = 0.25
 shader_parameter/Number = 3
@@ -171,10 +171,10 @@ shader_parameter/SegmentOnColor = Color(0.211765, 0.972549, 0, 1)
 shader_parameter/SegmentOffColor = Color(0.435294, 0.435294, 0.435294, 1)
 shader_parameter/BackgroundColor = Color(0, 0, 0, 0)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3uv6m"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wuhpe"]
 shader = ExtResource("2_2c3a6")
 shader_parameter/SkewAngle = 15.0
-shader_parameter/Size = 64
+shader_parameter/Size = 64.0
 shader_parameter/SegmentWidth = 0.25
 shader_parameter/SegmentOffsetRatio = 0.25
 shader_parameter/Number = 4
@@ -183,10 +183,10 @@ shader_parameter/SegmentOnColor = Color(0.211765, 0.972549, 0, 1)
 shader_parameter/SegmentOffColor = Color(0.435294, 0.435294, 0.435294, 1)
 shader_parameter/BackgroundColor = Color(0, 0, 0, 0)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lgbsc"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jr1hl"]
 shader = ExtResource("2_2c3a6")
 shader_parameter/SkewAngle = 15.0
-shader_parameter/Size = 64
+shader_parameter/Size = 64.0
 shader_parameter/SegmentWidth = 0.25
 shader_parameter/SegmentOffsetRatio = 0.25
 shader_parameter/Number = 5
@@ -195,10 +195,10 @@ shader_parameter/SegmentOnColor = Color(0.211765, 0.972549, 0, 1)
 shader_parameter/SegmentOffColor = Color(0.435294, 0.435294, 0.435294, 1)
 shader_parameter/BackgroundColor = Color(0, 0, 0, 0)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_pxbt1"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1fipl"]
 shader = ExtResource("2_2c3a6")
 shader_parameter/SkewAngle = 15.0
-shader_parameter/Size = 64
+shader_parameter/Size = 64.0
 shader_parameter/SegmentWidth = 0.25
 shader_parameter/SegmentOffsetRatio = 0.25
 shader_parameter/Number = 6
@@ -207,10 +207,10 @@ shader_parameter/SegmentOnColor = Color(0.211765, 0.972549, 0, 1)
 shader_parameter/SegmentOffColor = Color(0.435294, 0.435294, 0.435294, 1)
 shader_parameter/BackgroundColor = Color(0, 0, 0, 0)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_aw3ab"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uwo3k"]
 shader = ExtResource("2_2c3a6")
 shader_parameter/SkewAngle = 15.0
-shader_parameter/Size = 64
+shader_parameter/Size = 64.0
 shader_parameter/SegmentWidth = 0.25
 shader_parameter/SegmentOffsetRatio = 0.25
 shader_parameter/Number = 7
@@ -219,10 +219,10 @@ shader_parameter/SegmentOnColor = Color(0.211765, 0.972549, 0, 1)
 shader_parameter/SegmentOffColor = Color(0.435294, 0.435294, 0.435294, 1)
 shader_parameter/BackgroundColor = Color(0, 0, 0, 0)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_knbmv"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cdgco"]
 shader = ExtResource("2_2c3a6")
 shader_parameter/SkewAngle = 15.0
-shader_parameter/Size = 64
+shader_parameter/Size = 64.0
 shader_parameter/SegmentWidth = 0.25
 shader_parameter/SegmentOffsetRatio = 0.25
 shader_parameter/Number = 8
@@ -231,10 +231,10 @@ shader_parameter/SegmentOnColor = Color(0.211765, 0.972549, 0, 1)
 shader_parameter/SegmentOffColor = Color(0.435294, 0.435294, 0.435294, 1)
 shader_parameter/BackgroundColor = Color(0, 0, 0, 0)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xj0gj"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c35fs"]
 shader = ExtResource("2_2c3a6")
 shader_parameter/SkewAngle = 15.0
-shader_parameter/Size = 64
+shader_parameter/Size = 64.0
 shader_parameter/SegmentWidth = 0.25
 shader_parameter/SegmentOffsetRatio = 0.25
 shader_parameter/Number = 9
@@ -243,10 +243,10 @@ shader_parameter/SegmentOnColor = Color(0.211765, 0.972549, 0, 1)
 shader_parameter/SegmentOffColor = Color(0.435294, 0.435294, 0.435294, 1)
 shader_parameter/BackgroundColor = Color(0, 0, 0, 0)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3p6g4"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8vfew"]
 shader = ExtResource("2_2c3a6")
 shader_parameter/SkewAngle = -30.0
-shader_parameter/Size = 64
+shader_parameter/Size = 64.0
 shader_parameter/SegmentWidth = 0.075
 shader_parameter/SegmentOffsetRatio = 0.0
 shader_parameter/Number = 0
@@ -255,10 +255,10 @@ shader_parameter/SegmentOnColor = Color(0.0352941, 0.345098, 1, 1)
 shader_parameter/SegmentOffColor = Color(1, 1, 1, 1)
 shader_parameter/BackgroundColor = Color(1, 1, 1, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_oiyg2"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2s0mh"]
 shader = ExtResource("2_2c3a6")
 shader_parameter/SkewAngle = -30.0
-shader_parameter/Size = 64
+shader_parameter/Size = 64.0
 shader_parameter/SegmentWidth = 0.075
 shader_parameter/SegmentOffsetRatio = 0.0
 shader_parameter/Number = 1
@@ -267,10 +267,10 @@ shader_parameter/SegmentOnColor = Color(0.0352941, 0.345098, 1, 1)
 shader_parameter/SegmentOffColor = Color(1, 1, 1, 1)
 shader_parameter/BackgroundColor = Color(1, 1, 1, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ucktt"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v00ye"]
 shader = ExtResource("2_2c3a6")
 shader_parameter/SkewAngle = -30.0
-shader_parameter/Size = 64
+shader_parameter/Size = 64.0
 shader_parameter/SegmentWidth = 0.075
 shader_parameter/SegmentOffsetRatio = 0.0
 shader_parameter/Number = 2
@@ -279,10 +279,10 @@ shader_parameter/SegmentOnColor = Color(0.0352941, 0.345098, 1, 1)
 shader_parameter/SegmentOffColor = Color(1, 1, 1, 1)
 shader_parameter/BackgroundColor = Color(1, 1, 1, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0fqex"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1f5ud"]
 shader = ExtResource("2_2c3a6")
 shader_parameter/SkewAngle = -30.0
-shader_parameter/Size = 64
+shader_parameter/Size = 64.0
 shader_parameter/SegmentWidth = 0.075
 shader_parameter/SegmentOffsetRatio = 0.0
 shader_parameter/Number = 3
@@ -291,10 +291,10 @@ shader_parameter/SegmentOnColor = Color(0.0352941, 0.345098, 1, 1)
 shader_parameter/SegmentOffColor = Color(1, 1, 1, 1)
 shader_parameter/BackgroundColor = Color(1, 1, 1, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vadry"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uwnnw"]
 shader = ExtResource("2_2c3a6")
 shader_parameter/SkewAngle = -30.0
-shader_parameter/Size = 64
+shader_parameter/Size = 64.0
 shader_parameter/SegmentWidth = 0.075
 shader_parameter/SegmentOffsetRatio = 0.0
 shader_parameter/Number = 4
@@ -303,10 +303,10 @@ shader_parameter/SegmentOnColor = Color(0.0352941, 0.345098, 1, 1)
 shader_parameter/SegmentOffColor = Color(1, 1, 1, 1)
 shader_parameter/BackgroundColor = Color(1, 1, 1, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3kqvp"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eard7"]
 shader = ExtResource("2_2c3a6")
 shader_parameter/SkewAngle = -30.0
-shader_parameter/Size = 64
+shader_parameter/Size = 64.0
 shader_parameter/SegmentWidth = 0.075
 shader_parameter/SegmentOffsetRatio = 0.0
 shader_parameter/Number = 5
@@ -315,10 +315,10 @@ shader_parameter/SegmentOnColor = Color(0.0352941, 0.345098, 1, 1)
 shader_parameter/SegmentOffColor = Color(1, 1, 1, 1)
 shader_parameter/BackgroundColor = Color(1, 1, 1, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1pktc"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_88o6a"]
 shader = ExtResource("2_2c3a6")
 shader_parameter/SkewAngle = -30.0
-shader_parameter/Size = 64
+shader_parameter/Size = 64.0
 shader_parameter/SegmentWidth = 0.075
 shader_parameter/SegmentOffsetRatio = 0.0
 shader_parameter/Number = 6
@@ -327,10 +327,10 @@ shader_parameter/SegmentOnColor = Color(0.0352941, 0.345098, 1, 1)
 shader_parameter/SegmentOffColor = Color(1, 1, 1, 1)
 shader_parameter/BackgroundColor = Color(1, 1, 1, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_bmnpt"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hkenf"]
 shader = ExtResource("2_2c3a6")
 shader_parameter/SkewAngle = -30.0
-shader_parameter/Size = 64
+shader_parameter/Size = 64.0
 shader_parameter/SegmentWidth = 0.075
 shader_parameter/SegmentOffsetRatio = 0.0
 shader_parameter/Number = 7
@@ -339,10 +339,10 @@ shader_parameter/SegmentOnColor = Color(0.0352941, 0.345098, 1, 1)
 shader_parameter/SegmentOffColor = Color(1, 1, 1, 1)
 shader_parameter/BackgroundColor = Color(1, 1, 1, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_yqpye"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_umptq"]
 shader = ExtResource("2_2c3a6")
 shader_parameter/SkewAngle = -30.0
-shader_parameter/Size = 64
+shader_parameter/Size = 64.0
 shader_parameter/SegmentWidth = 0.075
 shader_parameter/SegmentOffsetRatio = 0.0
 shader_parameter/Number = 8
@@ -351,10 +351,10 @@ shader_parameter/SegmentOnColor = Color(0.0352941, 0.345098, 1, 1)
 shader_parameter/SegmentOffColor = Color(1, 1, 1, 1)
 shader_parameter/BackgroundColor = Color(1, 1, 1, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5bu40"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i6n4h"]
 shader = ExtResource("2_2c3a6")
 shader_parameter/SkewAngle = -30.0
-shader_parameter/Size = 64
+shader_parameter/Size = 64.0
 shader_parameter/SegmentWidth = 0.075
 shader_parameter/SegmentOffsetRatio = 0.0
 shader_parameter/Number = 9
@@ -363,10 +363,10 @@ shader_parameter/SegmentOnColor = Color(0.0352941, 0.345098, 1, 1)
 shader_parameter/SegmentOffColor = Color(1, 1, 1, 1)
 shader_parameter/BackgroundColor = Color(1, 1, 1, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_mbv25"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ybcv5"]
 shader = ExtResource("2_2c3a6")
 shader_parameter/SkewAngle = 0.0
-shader_parameter/Size = 64
+shader_parameter/Size = 64.0
 shader_parameter/SegmentWidth = 0.333
 shader_parameter/SegmentOffsetRatio = 1.0
 shader_parameter/Number = 0
@@ -382,10 +382,10 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 gradient = SubResource("Gradient_ihgnb")
 height = 107
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_sc5jl"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wo4tc"]
 shader = ExtResource("2_2c3a6")
 shader_parameter/SkewAngle = 0.0
-shader_parameter/Size = 64
+shader_parameter/Size = 64.0
 shader_parameter/SegmentWidth = 0.333
 shader_parameter/SegmentOffsetRatio = 1.0
 shader_parameter/Number = 1
@@ -394,10 +394,10 @@ shader_parameter/SegmentOnColor = Color(1, 0, 1, 0)
 shader_parameter/SegmentOffColor = Color(0, 0, 0, 1)
 shader_parameter/BackgroundColor = Color(0, 0, 0, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7uywm"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lc7xj"]
 shader = ExtResource("2_2c3a6")
 shader_parameter/SkewAngle = 0.0
-shader_parameter/Size = 64
+shader_parameter/Size = 64.0
 shader_parameter/SegmentWidth = 0.333
 shader_parameter/SegmentOffsetRatio = 1.0
 shader_parameter/Number = 2
@@ -406,10 +406,10 @@ shader_parameter/SegmentOnColor = Color(1, 0, 1, 0)
 shader_parameter/SegmentOffColor = Color(0, 0, 0, 1)
 shader_parameter/BackgroundColor = Color(0, 0, 0, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_x2my5"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r674p"]
 shader = ExtResource("2_2c3a6")
 shader_parameter/SkewAngle = 0.0
-shader_parameter/Size = 64
+shader_parameter/Size = 64.0
 shader_parameter/SegmentWidth = 0.333
 shader_parameter/SegmentOffsetRatio = 1.0
 shader_parameter/Number = 3
@@ -418,10 +418,10 @@ shader_parameter/SegmentOnColor = Color(1, 0, 1, 0)
 shader_parameter/SegmentOffColor = Color(0, 0, 0, 1)
 shader_parameter/BackgroundColor = Color(0, 0, 0, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_66nh6"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p2m3u"]
 shader = ExtResource("2_2c3a6")
 shader_parameter/SkewAngle = 0.0
-shader_parameter/Size = 64
+shader_parameter/Size = 64.0
 shader_parameter/SegmentWidth = 0.333
 shader_parameter/SegmentOffsetRatio = 1.0
 shader_parameter/Number = 4
@@ -430,10 +430,10 @@ shader_parameter/SegmentOnColor = Color(1, 0, 1, 0)
 shader_parameter/SegmentOffColor = Color(0, 0, 0, 1)
 shader_parameter/BackgroundColor = Color(0, 0, 0, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jaxr2"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lykbx"]
 shader = ExtResource("2_2c3a6")
 shader_parameter/SkewAngle = 0.0
-shader_parameter/Size = 64
+shader_parameter/Size = 64.0
 shader_parameter/SegmentWidth = 0.333
 shader_parameter/SegmentOffsetRatio = 1.0
 shader_parameter/Number = 5
@@ -442,10 +442,10 @@ shader_parameter/SegmentOnColor = Color(1, 0, 1, 0)
 shader_parameter/SegmentOffColor = Color(0, 0, 0, 1)
 shader_parameter/BackgroundColor = Color(0, 0, 0, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dh0q6"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cijrj"]
 shader = ExtResource("2_2c3a6")
 shader_parameter/SkewAngle = 0.0
-shader_parameter/Size = 64
+shader_parameter/Size = 64.0
 shader_parameter/SegmentWidth = 0.333
 shader_parameter/SegmentOffsetRatio = 1.0
 shader_parameter/Number = 6
@@ -454,10 +454,10 @@ shader_parameter/SegmentOnColor = Color(1, 0, 1, 0)
 shader_parameter/SegmentOffColor = Color(0, 0, 0, 1)
 shader_parameter/BackgroundColor = Color(0, 0, 0, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_51wbt"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bv2ea"]
 shader = ExtResource("2_2c3a6")
 shader_parameter/SkewAngle = 0.0
-shader_parameter/Size = 64
+shader_parameter/Size = 64.0
 shader_parameter/SegmentWidth = 0.333
 shader_parameter/SegmentOffsetRatio = 1.0
 shader_parameter/Number = 7
@@ -466,10 +466,10 @@ shader_parameter/SegmentOnColor = Color(1, 0, 1, 0)
 shader_parameter/SegmentOffColor = Color(0, 0, 0, 1)
 shader_parameter/BackgroundColor = Color(0, 0, 0, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_q6spf"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ep8us"]
 shader = ExtResource("2_2c3a6")
 shader_parameter/SkewAngle = 0.0
-shader_parameter/Size = 64
+shader_parameter/Size = 64.0
 shader_parameter/SegmentWidth = 0.333
 shader_parameter/SegmentOffsetRatio = 1.0
 shader_parameter/Number = 8
@@ -478,10 +478,10 @@ shader_parameter/SegmentOnColor = Color(1, 0, 1, 0)
 shader_parameter/SegmentOffColor = Color(0, 0, 0, 1)
 shader_parameter/BackgroundColor = Color(0, 0, 0, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_nskpg"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_etsnv"]
 shader = ExtResource("2_2c3a6")
 shader_parameter/SkewAngle = 0.0
-shader_parameter/Size = 64
+shader_parameter/Size = 64.0
 shader_parameter/SegmentWidth = 0.333
 shader_parameter/SegmentOffsetRatio = 1.0
 shader_parameter/Number = 9
@@ -506,60 +506,60 @@ color_off = Color(0.498039, 0.498039, 0.498039, 1)
 metadata/_edit_group_ = true
 
 [node name="0" type="ColorRect" parent="demo1"]
-material = SubResource("ShaderMaterial_lm65f")
+material = SubResource("ShaderMaterial_feonl")
 offset_right = 63.9996
 offset_bottom = 64.0
 
 [node name="1" type="ColorRect" parent="demo1"]
-material = SubResource("ShaderMaterial_w40le")
+material = SubResource("ShaderMaterial_kp2oy")
 offset_left = 64.0
 offset_right = 128.0
 offset_bottom = 64.0
 
 [node name="2" type="ColorRect" parent="demo1"]
-material = SubResource("ShaderMaterial_phdjk")
+material = SubResource("ShaderMaterial_nwjti")
 offset_left = 128.0
 offset_right = 192.0
 offset_bottom = 64.0
 
 [node name="3" type="ColorRect" parent="demo1"]
-material = SubResource("ShaderMaterial_1orog")
+material = SubResource("ShaderMaterial_8ij4a")
 offset_left = 192.0
 offset_right = 256.0
 offset_bottom = 64.0
 
 [node name="4" type="ColorRect" parent="demo1"]
-material = SubResource("ShaderMaterial_t4whl")
+material = SubResource("ShaderMaterial_8ed5n")
 offset_left = 256.0
 offset_right = 320.0
 offset_bottom = 64.0
 
 [node name="5" type="ColorRect" parent="demo1"]
-material = SubResource("ShaderMaterial_mifgo")
+material = SubResource("ShaderMaterial_0p88p")
 offset_left = 320.0
 offset_right = 384.0
 offset_bottom = 64.0
 
 [node name="6" type="ColorRect" parent="demo1"]
-material = SubResource("ShaderMaterial_k4tx5")
+material = SubResource("ShaderMaterial_ak5vx")
 offset_left = 384.0
 offset_right = 448.0
 offset_bottom = 64.0
 
 [node name="7" type="ColorRect" parent="demo1"]
-material = SubResource("ShaderMaterial_ipbao")
+material = SubResource("ShaderMaterial_frbxs")
 offset_left = 448.0
 offset_right = 512.0
 offset_bottom = 64.0
 
 [node name="8" type="ColorRect" parent="demo1"]
-material = SubResource("ShaderMaterial_fui2j")
+material = SubResource("ShaderMaterial_3g34u")
 offset_left = 512.0
 offset_right = 576.0
 offset_bottom = 64.0
 
 [node name="9" type="ColorRect" parent="demo1"]
-material = SubResource("ShaderMaterial_lffuy")
+material = SubResource("ShaderMaterial_wagdf")
 offset_left = 576.0
 offset_right = 640.004
 offset_bottom = 64.0
@@ -576,60 +576,60 @@ segment_offset = 0.25
 metadata/_edit_group_ = true
 
 [node name="0" type="ColorRect" parent="demo2"]
-material = SubResource("ShaderMaterial_iqvaa")
+material = SubResource("ShaderMaterial_qgk72")
 offset_right = 63.9996
 offset_bottom = 64.0
 
 [node name="1" type="ColorRect" parent="demo2"]
-material = SubResource("ShaderMaterial_ult1e")
+material = SubResource("ShaderMaterial_3mb82")
 offset_left = 72.3537
 offset_right = 136.353
 offset_bottom = 64.0
 
 [node name="2" type="ColorRect" parent="demo2"]
-material = SubResource("ShaderMaterial_2cndd")
+material = SubResource("ShaderMaterial_r8bxy")
 offset_left = 144.707
 offset_right = 208.707
 offset_bottom = 64.0
 
 [node name="3" type="ColorRect" parent="demo2"]
-material = SubResource("ShaderMaterial_kybir")
+material = SubResource("ShaderMaterial_m0fxf")
 offset_left = 217.061
 offset_right = 281.061
 offset_bottom = 64.0
 
 [node name="4" type="ColorRect" parent="demo2"]
-material = SubResource("ShaderMaterial_3uv6m")
+material = SubResource("ShaderMaterial_wuhpe")
 offset_left = 289.415
 offset_right = 353.415
 offset_bottom = 64.0
 
 [node name="5" type="ColorRect" parent="demo2"]
-material = SubResource("ShaderMaterial_lgbsc")
+material = SubResource("ShaderMaterial_jr1hl")
 offset_left = 361.768
 offset_right = 425.768
 offset_bottom = 64.0
 
 [node name="6" type="ColorRect" parent="demo2"]
-material = SubResource("ShaderMaterial_pxbt1")
+material = SubResource("ShaderMaterial_1fipl")
 offset_left = 434.122
 offset_right = 498.122
 offset_bottom = 64.0
 
 [node name="7" type="ColorRect" parent="demo2"]
-material = SubResource("ShaderMaterial_aw3ab")
+material = SubResource("ShaderMaterial_uwo3k")
 offset_left = 506.476
 offset_right = 570.476
 offset_bottom = 64.0
 
 [node name="8" type="ColorRect" parent="demo2"]
-material = SubResource("ShaderMaterial_knbmv")
+material = SubResource("ShaderMaterial_cdgco")
 offset_left = 578.829
 offset_right = 642.829
 offset_bottom = 64.0
 
 [node name="9" type="ColorRect" parent="demo2"]
-material = SubResource("ShaderMaterial_xj0gj")
+material = SubResource("ShaderMaterial_c35fs")
 offset_left = 651.183
 offset_right = 715.187
 offset_bottom = 64.0
@@ -645,60 +645,60 @@ segment_offset = 0.0
 metadata/_edit_group_ = true
 
 [node name="0" type="ColorRect" parent="demo3"]
-material = SubResource("ShaderMaterial_3p6g4")
+material = SubResource("ShaderMaterial_8vfew")
 offset_right = 63.9996
 offset_bottom = 64.0
 
 [node name="1" type="ColorRect" parent="demo3"]
-material = SubResource("ShaderMaterial_oiyg2")
+material = SubResource("ShaderMaterial_2s0mh")
 offset_left = 96.0
 offset_right = 160.001
 offset_bottom = 64.0
 
 [node name="2" type="ColorRect" parent="demo3"]
-material = SubResource("ShaderMaterial_ucktt")
+material = SubResource("ShaderMaterial_v00ye")
 offset_left = 192.0
 offset_right = 256.0
 offset_bottom = 64.0
 
 [node name="3" type="ColorRect" parent="demo3"]
-material = SubResource("ShaderMaterial_0fqex")
+material = SubResource("ShaderMaterial_1f5ud")
 offset_left = 288.0
 offset_right = 352.0
 offset_bottom = 64.0
 
 [node name="4" type="ColorRect" parent="demo3"]
-material = SubResource("ShaderMaterial_vadry")
+material = SubResource("ShaderMaterial_uwnnw")
 offset_left = 384.0
 offset_right = 448.0
 offset_bottom = 64.0
 
 [node name="5" type="ColorRect" parent="demo3"]
-material = SubResource("ShaderMaterial_3kqvp")
+material = SubResource("ShaderMaterial_eard7")
 offset_left = 480.0
 offset_right = 544.0
 offset_bottom = 64.0
 
 [node name="6" type="ColorRect" parent="demo3"]
-material = SubResource("ShaderMaterial_1pktc")
+material = SubResource("ShaderMaterial_88o6a")
 offset_left = 576.0
 offset_right = 639.999
 offset_bottom = 64.0
 
 [node name="7" type="ColorRect" parent="demo3"]
-material = SubResource("ShaderMaterial_bmnpt")
+material = SubResource("ShaderMaterial_hkenf")
 offset_left = 672.0
 offset_right = 736.001
 offset_bottom = 64.0
 
 [node name="8" type="ColorRect" parent="demo3"]
-material = SubResource("ShaderMaterial_yqpye")
+material = SubResource("ShaderMaterial_umptq")
 offset_left = 768.0
 offset_right = 832.0
 offset_bottom = 64.0
 
 [node name="9" type="ColorRect" parent="demo3"]
-material = SubResource("ShaderMaterial_5bu40")
+material = SubResource("ShaderMaterial_i6n4h")
 offset_left = 864.0
 offset_right = 928.004
 offset_bottom = 64.0
@@ -714,7 +714,7 @@ margin = 10.0
 metadata/_edit_group_ = true
 
 [node name="0" type="ColorRect" parent="demo4"]
-material = SubResource("ShaderMaterial_mbv25")
+material = SubResource("ShaderMaterial_ybcv5")
 offset_right = 63.9996
 offset_bottom = 64.0
 
@@ -725,7 +725,7 @@ energy = 16.0
 texture = SubResource("GradientTexture2D_kklcw")
 
 [node name="1" type="ColorRect" parent="demo4"]
-material = SubResource("ShaderMaterial_sc5jl")
+material = SubResource("ShaderMaterial_wo4tc")
 offset_left = 74.0
 offset_right = 138.001
 offset_bottom = 64.0
@@ -737,7 +737,7 @@ energy = 16.0
 texture = SubResource("GradientTexture2D_kklcw")
 
 [node name="2" type="ColorRect" parent="demo4"]
-material = SubResource("ShaderMaterial_7uywm")
+material = SubResource("ShaderMaterial_lc7xj")
 offset_left = 148.0
 offset_right = 212.0
 offset_bottom = 64.0
@@ -749,7 +749,7 @@ energy = 16.0
 texture = SubResource("GradientTexture2D_kklcw")
 
 [node name="3" type="ColorRect" parent="demo4"]
-material = SubResource("ShaderMaterial_x2my5")
+material = SubResource("ShaderMaterial_r674p")
 offset_left = 222.0
 offset_right = 286.0
 offset_bottom = 64.0
@@ -761,7 +761,7 @@ energy = 16.0
 texture = SubResource("GradientTexture2D_kklcw")
 
 [node name="4" type="ColorRect" parent="demo4"]
-material = SubResource("ShaderMaterial_66nh6")
+material = SubResource("ShaderMaterial_p2m3u")
 offset_left = 296.0
 offset_right = 360.0
 offset_bottom = 64.0
@@ -773,7 +773,7 @@ energy = 16.0
 texture = SubResource("GradientTexture2D_kklcw")
 
 [node name="5" type="ColorRect" parent="demo4"]
-material = SubResource("ShaderMaterial_jaxr2")
+material = SubResource("ShaderMaterial_lykbx")
 offset_left = 370.0
 offset_right = 434.0
 offset_bottom = 64.0
@@ -785,7 +785,7 @@ energy = 16.0
 texture = SubResource("GradientTexture2D_kklcw")
 
 [node name="6" type="ColorRect" parent="demo4"]
-material = SubResource("ShaderMaterial_dh0q6")
+material = SubResource("ShaderMaterial_cijrj")
 offset_left = 444.0
 offset_right = 507.999
 offset_bottom = 64.0
@@ -797,7 +797,7 @@ energy = 16.0
 texture = SubResource("GradientTexture2D_kklcw")
 
 [node name="7" type="ColorRect" parent="demo4"]
-material = SubResource("ShaderMaterial_51wbt")
+material = SubResource("ShaderMaterial_bv2ea")
 offset_left = 518.0
 offset_right = 582.001
 offset_bottom = 64.0
@@ -809,7 +809,7 @@ energy = 16.0
 texture = SubResource("GradientTexture2D_kklcw")
 
 [node name="8" type="ColorRect" parent="demo4"]
-material = SubResource("ShaderMaterial_q6spf")
+material = SubResource("ShaderMaterial_ep8us")
 offset_left = 592.0
 offset_right = 656.0
 offset_bottom = 64.0
@@ -821,7 +821,7 @@ energy = 16.0
 texture = SubResource("GradientTexture2D_kklcw")
 
 [node name="9" type="ColorRect" parent="demo4"]
-material = SubResource("ShaderMaterial_nskpg")
+material = SubResource("ShaderMaterial_etsnv")
 offset_left = 666.0
 offset_right = 730.004
 offset_bottom = 64.0
