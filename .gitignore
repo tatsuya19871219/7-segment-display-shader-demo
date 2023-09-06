@@ -3,6 +3,7 @@
 
 # Godot-specific ignores
 .import/
+*.import
 export.cfg
 export_presets.cfg
 
@@ -13,3 +14,7 @@ export_presets.cfg
 .mono/
 data_*/
 mono_crash.*.json
+
+#
+.vs/VSWorkspaceState.json
+.vs/7-segment-display-shader-demo/v17/.wsuo

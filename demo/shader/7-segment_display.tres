@@ -1,0 +1,1183 @@
+[gd_resource type="VisualShader" load_steps=45 format=3 uid="uid://dx5wnuch6hx6b"]
+
+[sub_resource type="VisualShaderNodeSwitch" id="VisualShaderNodeSwitch_xdghs"]
+default_input_values = [0, false, 1, true, 2, false]
+op_type = 6
+
+[sub_resource type="VisualShaderNodeSwitch" id="VisualShaderNodeSwitch_7d5sb"]
+default_input_values = [0, false, 1, true, 2, false]
+op_type = 6
+
+[sub_resource type="VisualShaderNodeSwitch" id="VisualShaderNodeSwitch_ssfrr"]
+default_input_values = [0, false, 1, true, 2, false]
+op_type = 6
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_kbdu6"]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeSwitch" id="VisualShaderNodeSwitch_7t6rn"]
+default_input_values = [0, false, 1, true, 2, false]
+op_type = 6
+
+[sub_resource type="VisualShaderNodeSwitch" id="VisualShaderNodeSwitch_avubb"]
+default_input_values = [0, false, 1, true, 2, false]
+op_type = 6
+
+[sub_resource type="VisualShaderNodeFloatFunc" id="VisualShaderNodeFloatFunc_5t6g6"]
+function = 27
+
+[sub_resource type="VisualShaderNodeExpression" id="VisualShaderNodeExpression_ikl6q"]
+size = Vector2(529.168, 571.962)
+expression = "float x_stretched = uv.x;
+float y_flipped = 1.0 - uv.y;
+
+float alpha = abs(sin(theta));
+
+if (theta >= 0.0) {
+	x_stretched += uv.x * alpha;
+}
+else {
+	x_stretched += (uv.x - 1.0) * alpha;
+}
+
+vec2 uv_stretched = vec2(x_stretched, y_flipped);
+
+uv_skewed = skewed_uv(uv_stretched, theta);
+
+uv_skewed.y = 1.0 - uv_skewed.y;"
+
+[sub_resource type="VisualShaderNodeSwitch" id="VisualShaderNodeSwitch_s573r"]
+default_input_values = [0, false, 1, true, 2, false]
+op_type = 6
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_j24p0"]
+expanded_output_ports = [0]
+parameter_name = "BackgroundColor"
+default_value_enabled = true
+default_value = Color(0, 0, 0, 1)
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_y1026"]
+expanded_output_ports = [0]
+parameter_name = "SegmentOnColor"
+default_value_enabled = true
+default_value = Color(1, 0, 0, 1)
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_ajhdt"]
+expanded_output_ports = [0]
+parameter_name = "SegmentOffColor"
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeExpression" id="VisualShaderNodeExpression_i3xm2"]
+size = Vector2(1268.46, 388.266)
+expression = "is_in_segments = any_7(is_in_segment_a, is_in_segment_b, is_in_segment_c, is_in_segment_d, is_in_segment_e, is_in_segment_f, is_in_segment_g);"
+
+[sub_resource type="VisualShaderNodeSwitch" id="VisualShaderNodeSwitch_wmsa4"]
+default_input_values = [0, false, 1, Vector3(1, 1, 1), 2, Vector3(0, 0, 0)]
+op_type = 4
+
+[sub_resource type="VisualShaderNodeSwitch" id="VisualShaderNodeSwitch_6dre2"]
+
+[sub_resource type="VisualShaderNodeIntParameter" id="VisualShaderNodeIntParameter_bsev0"]
+parameter_name = "Number"
+hint = 1
+max = 9
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeBooleanParameter" id="VisualShaderNodeBooleanParameter_362bo"]
+parameter_name = "ON"
+default_value_enabled = true
+default_value = true
+
+[sub_resource type="VisualShaderNodeExpression" id="VisualShaderNodeExpression_7da2h"]
+size = Vector2(587.246, 827.926)
+expression = "segment_a_on = false;
+segment_b_on = false;
+segment_c_on = false;
+segment_d_on = false;
+segment_e_on = false;
+segment_f_on = false;
+segment_g_on = false;
+
+if (!segments_on) {
+	// no operaiton
+}
+else {
+	switch(number) {
+		case 0:
+			segment_a_on = true;
+			segment_b_on = true;
+			segment_c_on = true;
+			segment_d_on = true;
+			segment_e_on = true;
+			segment_f_on = true;
+			break;
+		case 1:
+			segment_b_on = true;
+			segment_c_on = true;
+			break;
+		case 2:
+			segment_a_on = true;
+			segment_b_on = true;
+			segment_d_on = true; 
+			segment_e_on = true;
+			segment_g_on = true;
+			break;
+		case 3:
+			segment_a_on = true;
+			segment_b_on = true;
+			segment_c_on = true;
+			segment_d_on = true;
+			segment_g_on = true;
+			break;
+		case 4:
+			segment_b_on = true;
+			segment_c_on = true;
+			segment_f_on = true;
+			segment_g_on = true;
+			break;
+		case 5:
+			segment_a_on = true;
+			segment_c_on = true;
+			segment_d_on = true;
+			segment_f_on = true;
+			segment_g_on = true;
+			break;
+		case 6:
+			segment_a_on = true;
+			segment_c_on = true;
+			segment_d_on = true;
+			segment_e_on = true;
+			segment_f_on = true;
+			segment_g_on = true;
+			break;
+		case 7:
+			segment_a_on = true;
+			segment_b_on = true;
+			segment_c_on = true;
+			break;
+		case 8:
+			segment_a_on = true;
+			segment_b_on = true;
+			segment_c_on = true;
+			segment_d_on = true;
+			segment_e_on = true;
+			segment_f_on = true;
+			segment_g_on = true;
+			break;
+		case 9:
+			segment_a_on = true;
+			segment_b_on = true;
+			segment_c_on = true;
+			segment_d_on = true;
+			segment_f_on = true;
+			segment_g_on = true;
+			break;
+	}
+}"
+
+[sub_resource type="VisualShaderNodeExpression" id="VisualShaderNodeExpression_dqja1"]
+size = Vector2(1267.32, 389.429)
+expression = "is_in_segments = any_7(is_in_segment_a, is_in_segment_b, is_in_segment_c, is_in_segment_d, is_in_segment_e, is_in_segment_f, is_in_segment_g);"
+
+[sub_resource type="VisualShaderNodeSwitch" id="VisualShaderNodeSwitch_muob1"]
+default_input_values = [0, false, 1, Vector3(1, 1, 1), 2, Vector3(0, 0, 0)]
+op_type = 4
+
+[sub_resource type="VisualShaderNodeSwitch" id="VisualShaderNodeSwitch_hpnfx"]
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_q8lyt"]
+parameter_name = "SegmentWidth"
+hint = 1
+max = 0.333
+default_value_enabled = true
+default_value = 0.1
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_dwkm1"]
+parameter_name = "SegmentOffsetRatio"
+hint = 1
+default_value_enabled = true
+default_value = 0.5
+
+[sub_resource type="VisualShaderNodeComment" id="VisualShaderNodeComment_37rar"]
+title = "LICENSE"
+description = "MIT License
+
+Copyright (c) 2023 Tatsuya Yamada
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the \"Software\"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE."
+
+[sub_resource type="VisualShaderNodeGlobalExpression" id="VisualShaderNodeGlobalExpression_nh4pq"]
+size = Vector2(962.171, 786.656)
+expression = "// The include directive does not work correctly in visual shader.
+//#include \"segment_number_utils.gdshaderinc\"
+
+vec2 skewed_uv(vec2 uv, float theta) {
+	float x = uv.x - uv.y * tan(theta);
+	float y = uv.y / cos(theta);
+	return vec2(x,y);
+}
+
+vec2 rotated_uv(vec2 uv, float theta) {
+	float x = uv.x * cos(theta) - uv.y * sin(theta);
+	float y = uv.x * sin(theta) + uv.y * cos(theta);
+	return vec2(x,y);	
+}
+
+bool in_hline(vec2 st, float len, float width) {
+	bool is_in_hline = false;
+	if (st.x >= 0.0 && st.x <= len && st.y >= -width/2.0 && st.y <= width/2.0) {
+		is_in_hline = true;
+	}
+	return is_in_hline;
+}
+
+bool in_vline(vec2 st, float len, float width) {
+	bool is_in_vline = false;
+	if (st.y >= 0.0 && st.y <= len && st.x >= -width/2.0 && st.x <= width/2.0) {
+		is_in_vline = true;
+	}
+	return is_in_vline;
+}
+
+bool in_triangle(vec2 st, float theta, float width) {
+	bool is_in_triangle = false;
+	vec2 st_rotated = rotated_uv(st, theta);
+	float tri_width = abs(st_rotated.x - width/2.0) ;
+	if (st_rotated.x >= 0.0 && st_rotated.x <= width/2.0 
+		&& st_rotated.y >= - tri_width && st_rotated.y <= tri_width) {
+		is_in_triangle = true;	
+	}
+	return is_in_triangle;
+}
+
+bool in_horizontal_segment(vec2 uv, vec2 p0, float len, float width, vec2 ratio) {
+	bool is_in_segment = false;
+	
+	vec2 st = (uv - p0) * ratio;
+	is_in_segment = is_in_segment || in_hline(st, len, width);
+	is_in_segment = is_in_segment || in_triangle(st, -PI, width);
+	is_in_segment = is_in_segment || in_triangle(st - vec2(len, 0.0), 0.0, width);
+	
+	return is_in_segment;	
+}
+
+bool in_vertical_segment(vec2 uv, vec2 p0, float len, float width, vec2 ratio) {
+	bool is_in_segment = false;
+	
+	vec2 st = (uv - p0) * ratio;
+	is_in_segment = is_in_segment || in_vline(st, len, width);
+	is_in_segment = is_in_segment || in_triangle(st, PI/2.0, width);
+	is_in_segment = is_in_segment || in_triangle(st - vec2(0.0, len), -PI/2.0, width);
+	
+	return is_in_segment;	
+}
+
+bool any_7(bool s1, bool s2, bool s3, bool s4, bool s5, bool s6, bool s7) {
+	return s1 || s2 || s3 || s4 || s5 || s6 || s7;
+}
+"
+
+[sub_resource type="VisualShaderNodeParameterRef" id="VisualShaderNodeParameterRef_4hf7u"]
+parameter_name = "SkewAngle"
+
+[sub_resource type="VisualShaderNodeExpression" id="VisualShaderNodeExpression_lojpl"]
+size = Vector2(1133.25, 903.719)
+expression = "vec2 ratio = vec2(3.0, 5.0);
+vec2 ratio_normalized = vec2(1.0, ratio.y/ratio.x);
+
+float segment_offset = (1.0 + segment_offset_ratio) * segment_width / 2.0;
+float segment_length = 2.0/3.0 - 2.0 * segment_offset;
+
+vec2 p1 = vec2(0.5, 0.5) / ratio;
+vec2 p2 = vec2(2.5, 0.5) / ratio;
+vec2 p3 = vec2(0.5, 2.5) / ratio;
+vec2 p4 = vec2(2.5, 2.5) / ratio;
+vec2 p5 = vec2(0.5, 4.5) / ratio;
+vec2 p6 = vec2(2.5, 4.5) / ratio;
+
+vec2 h_offset = vec2(segment_offset, 0.0) / ratio_normalized;
+vec2 v_offset = vec2(0.0, segment_offset) / ratio_normalized;
+
+is_in_segment_a = in_horizontal_segment(uv, p1 + h_offset, segment_length, segment_width, ratio_normalized);
+is_in_segment_b = in_vertical_segment(uv, p2 + v_offset, segment_length, segment_width, ratio_normalized);
+is_in_segment_c = in_vertical_segment(uv, p4 + v_offset, segment_length, segment_width, ratio_normalized);
+is_in_segment_d = in_horizontal_segment(uv, p5 + h_offset, segment_length, segment_width, ratio_normalized);
+is_in_segment_e = in_vertical_segment(uv, p3 + v_offset, segment_length, segment_width, ratio_normalized);
+is_in_segment_f = in_vertical_segment(uv, p1 + v_offset, segment_length, segment_width, ratio_normalized);
+is_in_segment_g = in_horizontal_segment(uv, p3 + h_offset, segment_length, segment_width, ratio_normalized);
+"
+
+[sub_resource type="VisualShaderNodeSwitch" id="VisualShaderNodeSwitch_6dxnb"]
+default_input_values = [0, false, 1, true, 2, false]
+op_type = 6
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_bkntq"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_8ltjx"]
+parameter_name = "Size"
+hint = 1
+max = 512.0
+default_value_enabled = true
+default_value = 64.0
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_kc0yt"]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_20cxa"]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(0, 0)]
+op_type = 0
+operator = 2
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_faqio"]
+default_input_values = [0, Vector2(0, 0)]
+op_type = 0
+
+[sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_switl"]
+op_type = 0
+
+[sub_resource type="VisualShaderNodeFloatFunc" id="VisualShaderNodeFloatFunc_v5erp"]
+function = 12
+
+[sub_resource type="VisualShaderNodeSwitch" id="VisualShaderNodeSwitch_1dxpn"]
+
+[sub_resource type="VisualShaderNodeCompare" id="VisualShaderNodeCompare_s4cnl"]
+function = 3
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_3n0fr"]
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_d65s7"]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(1, 1.67)]
+op_type = 0
+operator = 2
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_7ghts"]
+operator = 1
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_lc8iw"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_cnada"]
+parameter_name = "SkewAngle"
+hint = 1
+min = -30.0
+max = 30.0
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeFloatFunc" id="VisualShaderNodeFloatFunc_k0red"]
+function = 27
+
+[sub_resource type="VisualShaderNodeFloatFunc" id="VisualShaderNodeFloatFunc_qy6r8"]
+function = 0
+
+[resource]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+uniform float SkewAngle : hint_range(-30, 30) = 0;
+uniform float Size : hint_range(0, 512) = 64;
+uniform float SegmentWidth : hint_range(0, 0.33300000429153) = 0.10000000149012;
+uniform float SegmentOffsetRatio : hint_range(0, 1) = 0.5;
+uniform int Number : hint_range(0, 9) = 0;
+uniform bool ON = true;
+uniform vec4 SegmentOnColor : source_color = vec4(1.000000, 0.000000, 0.000000, 1.000000);
+uniform vec4 SegmentOffColor : source_color = vec4(1.000000, 1.000000, 1.000000, 1.000000);
+uniform vec4 BackgroundColor : source_color = vec4(0.000000, 0.000000, 0.000000, 1.000000);
+
+
+// GlobalExpression:0
+	// The include directive does not work correctly in visual shader.
+	//#include \"segment_number_utils.gdshaderinc\"
+	
+	vec2 skewed_uv(vec2 uv, float theta) {
+		float x = uv.x - uv.y * tan(theta);
+		float y = uv.y / cos(theta);
+		return vec2(x,y);
+	}
+	
+	vec2 rotated_uv(vec2 uv, float theta) {
+		float x = uv.x * cos(theta) - uv.y * sin(theta);
+		float y = uv.x * sin(theta) + uv.y * cos(theta);
+		return vec2(x,y);	
+	}
+	
+	bool in_hline(vec2 st, float len, float width) {
+		bool is_in_hline = false;
+		if (st.x >= 0.0 && st.x <= len && st.y >= -width/2.0 && st.y <= width/2.0) {
+			is_in_hline = true;
+		}
+		return is_in_hline;
+	}
+	
+	bool in_vline(vec2 st, float len, float width) {
+		bool is_in_vline = false;
+		if (st.y >= 0.0 && st.y <= len && st.x >= -width/2.0 && st.x <= width/2.0) {
+			is_in_vline = true;
+		}
+		return is_in_vline;
+	}
+	
+	bool in_triangle(vec2 st, float theta, float width) {
+		bool is_in_triangle = false;
+		vec2 st_rotated = rotated_uv(st, theta);
+		float tri_width = abs(st_rotated.x - width/2.0) ;
+		if (st_rotated.x >= 0.0 && st_rotated.x <= width/2.0 
+			&& st_rotated.y >= - tri_width && st_rotated.y <= tri_width) {
+			is_in_triangle = true;	
+		}
+		return is_in_triangle;
+	}
+	
+	bool in_horizontal_segment(vec2 uv, vec2 p0, float len, float width, vec2 ratio) {
+		bool is_in_segment = false;
+		
+		vec2 st = (uv - p0) * ratio;
+		is_in_segment = is_in_segment || in_hline(st, len, width);
+		is_in_segment = is_in_segment || in_triangle(st, -PI, width);
+		is_in_segment = is_in_segment || in_triangle(st - vec2(len, 0.0), 0.0, width);
+		
+		return is_in_segment;	
+	}
+	
+	bool in_vertical_segment(vec2 uv, vec2 p0, float len, float width, vec2 ratio) {
+		bool is_in_segment = false;
+		
+		vec2 st = (uv - p0) * ratio;
+		is_in_segment = is_in_segment || in_vline(st, len, width);
+		is_in_segment = is_in_segment || in_triangle(st, PI/2.0, width);
+		is_in_segment = is_in_segment || in_triangle(st - vec2(0.0, len), -PI/2.0, width);
+		
+		return is_in_segment;	
+	}
+	
+	bool any_7(bool s1, bool s2, bool s3, bool s4, bool s5, bool s6, bool s7) {
+		return s1 || s2 || s3 || s4 || s5 || s6 || s7;
+	}
+	
+
+void vertex() {
+// FloatParameter:42
+	float n_out42p0 = SkewAngle;
+
+
+// FloatFunc:7
+	float n_out7p0 = radians(n_out42p0);
+
+
+// Compare:38
+	float n_in38p1 = 0.00000;
+	bool n_out38p0 = n_out7p0 >= n_in38p1;
+
+
+// FloatFunc:8
+	float n_out8p0 = sin(n_out7p0);
+
+
+// FloatFunc:36
+	float n_out36p0 = abs(n_out8p0);
+
+
+// FloatParameter:29
+	float n_out29p0 = Size;
+
+
+// Input:3
+	vec2 n_out3p0 = UV;
+
+
+// VectorOp:4
+	vec2 n_in4p1 = vec2(1.00000, 1.67000);
+	vec2 n_out4p0 = n_out3p0 * n_in4p1;
+
+
+// VectorOp:30
+	vec2 n_out30p0 = vec2(n_out29p0) * n_out4p0;
+
+
+// VectorDecompose:31
+	float n_out31p0 = n_out30p0.x;
+	float n_out31p1 = n_out30p0.y;
+
+
+// FloatOp:24
+	float n_out24p0 = n_out36p0 * n_out31p0;
+
+
+// FloatOp:41
+	float n_out41p0 = n_out36p0 * n_out29p0;
+
+
+// FloatOp:40
+	float n_out40p0 = n_out24p0 - n_out41p0;
+
+
+	float n_out37p0;
+// Switch:37
+	n_out37p0 = mix(n_out40p0, n_out24p0, float(n_out38p0));
+
+
+// FloatOp:39
+	float n_out39p0 = n_out37p0 + n_out31p0;
+
+
+// VectorCompose:32
+	vec2 n_out32p0 = vec2(n_out39p0, n_out31p1);
+
+
+// Output:0
+	VERTEX = n_out32p0;
+
+
+}
+
+void fragment() {
+// Input:2
+	vec2 n_out2p0 = UV;
+
+
+// ParameterRef:75
+	float n_out75p0 = SkewAngle;
+
+
+// FloatFunc:37
+	float n_out37p0 = radians(n_out75p0);
+
+
+	vec2 n_out46p0;
+// Expression:46
+	n_out46p0 = vec2(0.0, 0.0);
+	{
+		float x_stretched = n_out2p0.x;
+		float y_flipped = 1.0 - n_out2p0.y;
+		
+		float alpha = abs(sin(n_out37p0));
+		
+		if (n_out37p0 >= 0.0) {
+			x_stretched += n_out2p0.x * alpha;
+		}
+		else {
+			x_stretched += (n_out2p0.x - 1.0) * alpha;
+		}
+		
+		vec2 uv_stretched = vec2(x_stretched, y_flipped);
+		
+		n_out46p0 = skewed_uv(uv_stretched, n_out37p0);
+		
+		n_out46p0.y = 1.0 - n_out46p0.y;
+	}
+
+
+// FloatParameter:7
+	float n_out7p0 = SegmentWidth;
+
+
+// FloatParameter:72
+	float n_out72p0 = SegmentOffsetRatio;
+
+
+	bool n_out8p0;
+	bool n_out8p1;
+	bool n_out8p2;
+	bool n_out8p3;
+	bool n_out8p4;
+	bool n_out8p5;
+	bool n_out8p6;
+// Expression:8
+	n_out8p0 = false;
+	n_out8p1 = false;
+	n_out8p2 = false;
+	n_out8p3 = false;
+	n_out8p4 = false;
+	n_out8p5 = false;
+	n_out8p6 = false;
+	{
+		vec2 ratio = vec2(3.0, 5.0);
+		vec2 ratio_normalized = vec2(1.0, ratio.y/ratio.x);
+		
+		float segment_offset = (1.0 + n_out72p0) * n_out7p0 / 2.0;
+		float segment_length = 2.0/3.0 - 2.0 * segment_offset;
+		
+		vec2 p1 = vec2(0.5, 0.5) / ratio;
+		vec2 p2 = vec2(2.5, 0.5) / ratio;
+		vec2 p3 = vec2(0.5, 2.5) / ratio;
+		vec2 p4 = vec2(2.5, 2.5) / ratio;
+		vec2 p5 = vec2(0.5, 4.5) / ratio;
+		vec2 p6 = vec2(2.5, 4.5) / ratio;
+		
+		vec2 h_offset = vec2(segment_offset, 0.0) / ratio_normalized;
+		vec2 v_offset = vec2(0.0, segment_offset) / ratio_normalized;
+		
+		n_out8p0 = in_horizontal_segment(n_out46p0, p1 + h_offset, segment_length, n_out7p0, ratio_normalized);
+		n_out8p1 = in_vertical_segment(n_out46p0, p2 + v_offset, segment_length, n_out7p0, ratio_normalized);
+		n_out8p2 = in_vertical_segment(n_out46p0, p4 + v_offset, segment_length, n_out7p0, ratio_normalized);
+		n_out8p3 = in_horizontal_segment(n_out46p0, p5 + h_offset, segment_length, n_out7p0, ratio_normalized);
+		n_out8p4 = in_vertical_segment(n_out46p0, p3 + v_offset, segment_length, n_out7p0, ratio_normalized);
+		n_out8p5 = in_vertical_segment(n_out46p0, p1 + v_offset, segment_length, n_out7p0, ratio_normalized);
+		n_out8p6 = in_horizontal_segment(n_out46p0, p3 + h_offset, segment_length, n_out7p0, ratio_normalized);
+		
+	}
+
+
+	bool n_out54p0;
+// Expression:54
+	n_out54p0 = false;
+	{
+		n_out54p0 = any_7(n_out8p0, n_out8p1, n_out8p2, n_out8p3, n_out8p4, n_out8p5, n_out8p6);
+	}
+
+
+// IntParameter:57
+	int n_out57p0 = Number;
+
+
+// BooleanParameter:58
+	bool n_out58p0 = ON;
+
+
+	bool n_out61p0;
+	bool n_out61p1;
+	bool n_out61p2;
+	bool n_out61p3;
+	bool n_out61p4;
+	bool n_out61p5;
+	bool n_out61p6;
+// Expression:61
+	n_out61p0 = false;
+	n_out61p1 = false;
+	n_out61p2 = false;
+	n_out61p3 = false;
+	n_out61p4 = false;
+	n_out61p5 = false;
+	n_out61p6 = false;
+	{
+		n_out61p0 = false;
+		n_out61p1 = false;
+		n_out61p2 = false;
+		n_out61p3 = false;
+		n_out61p4 = false;
+		n_out61p5 = false;
+		n_out61p6 = false;
+		
+		if (!n_out58p0) {
+			// no operaiton
+		}
+		else {
+			switch(n_out57p0) {
+				case 0:
+					n_out61p0 = true;
+					n_out61p1 = true;
+					n_out61p2 = true;
+					n_out61p3 = true;
+					n_out61p4 = true;
+					n_out61p5 = true;
+					break;
+				case 1:
+					n_out61p1 = true;
+					n_out61p2 = true;
+					break;
+				case 2:
+					n_out61p0 = true;
+					n_out61p1 = true;
+					n_out61p3 = true; 
+					n_out61p4 = true;
+					n_out61p6 = true;
+					break;
+				case 3:
+					n_out61p0 = true;
+					n_out61p1 = true;
+					n_out61p2 = true;
+					n_out61p3 = true;
+					n_out61p6 = true;
+					break;
+				case 4:
+					n_out61p1 = true;
+					n_out61p2 = true;
+					n_out61p5 = true;
+					n_out61p6 = true;
+					break;
+				case 5:
+					n_out61p0 = true;
+					n_out61p2 = true;
+					n_out61p3 = true;
+					n_out61p5 = true;
+					n_out61p6 = true;
+					break;
+				case 6:
+					n_out61p0 = true;
+					n_out61p2 = true;
+					n_out61p3 = true;
+					n_out61p4 = true;
+					n_out61p5 = true;
+					n_out61p6 = true;
+					break;
+				case 7:
+					n_out61p0 = true;
+					n_out61p1 = true;
+					n_out61p2 = true;
+					break;
+				case 8:
+					n_out61p0 = true;
+					n_out61p1 = true;
+					n_out61p2 = true;
+					n_out61p3 = true;
+					n_out61p4 = true;
+					n_out61p5 = true;
+					n_out61p6 = true;
+					break;
+				case 9:
+					n_out61p0 = true;
+					n_out61p1 = true;
+					n_out61p2 = true;
+					n_out61p3 = true;
+					n_out61p5 = true;
+					n_out61p6 = true;
+					break;
+			}
+		}
+	}
+
+
+	bool n_out5p0;
+// Switch:5
+	bool n_in5p2 = false;
+	if (n_out8p0) {
+		n_out5p0 = n_out61p0;
+	} else {
+		n_out5p0 = n_in5p2;
+	}
+
+
+	bool n_out9p0;
+// Switch:9
+	bool n_in9p2 = false;
+	if (n_out8p1) {
+		n_out9p0 = n_out61p1;
+	} else {
+		n_out9p0 = n_in9p2;
+	}
+
+
+	bool n_out13p0;
+// Switch:13
+	bool n_in13p2 = false;
+	if (n_out8p2) {
+		n_out13p0 = n_out61p2;
+	} else {
+		n_out13p0 = n_in13p2;
+	}
+
+
+	bool n_out16p0;
+// Switch:16
+	bool n_in16p2 = false;
+	if (n_out8p3) {
+		n_out16p0 = n_out61p3;
+	} else {
+		n_out16p0 = n_in16p2;
+	}
+
+
+	bool n_out18p0;
+// Switch:18
+	bool n_in18p2 = false;
+	if (n_out8p4) {
+		n_out18p0 = n_out61p4;
+	} else {
+		n_out18p0 = n_in18p2;
+	}
+
+
+	bool n_out20p0;
+// Switch:20
+	bool n_in20p2 = false;
+	if (n_out8p5) {
+		n_out20p0 = n_out61p5;
+	} else {
+		n_out20p0 = n_in20p2;
+	}
+
+
+	bool n_out23p0;
+// Switch:23
+	bool n_in23p2 = false;
+	if (n_out8p6) {
+		n_out23p0 = n_out61p6;
+	} else {
+		n_out23p0 = n_in23p2;
+	}
+
+
+	bool n_out62p0;
+// Expression:62
+	n_out62p0 = false;
+	{
+		n_out62p0 = any_7(n_out5p0, n_out9p0, n_out13p0, n_out16p0, n_out18p0, n_out20p0, n_out23p0);
+	}
+
+
+// ColorParameter:52
+	vec4 n_out52p0 = SegmentOnColor;
+	float n_out52p4 = n_out52p0.a;
+
+
+// ColorParameter:53
+	vec4 n_out53p0 = SegmentOffColor;
+	float n_out53p4 = n_out53p0.a;
+
+
+	vec3 n_out63p0;
+// Switch:63
+	n_out63p0 = mix(vec3(n_out53p0.xyz), vec3(n_out52p0.xyz), float(n_out62p0));
+
+
+// ColorParameter:51
+	vec4 n_out51p0 = BackgroundColor;
+	float n_out51p4 = n_out51p0.a;
+
+
+	vec3 n_out55p0;
+// Switch:55
+	n_out55p0 = mix(vec3(n_out51p0.xyz), n_out63p0, float(n_out54p0));
+
+
+	float n_out64p0;
+// Switch:64
+	n_out64p0 = mix(n_out53p4, n_out52p4, float(n_out62p0));
+
+
+	float n_out56p0;
+// Switch:56
+	n_out56p0 = mix(n_out51p4, n_out64p0, float(n_out54p0));
+
+
+// Output:0
+	COLOR.rgb = n_out55p0;
+	COLOR.a = n_out56p0;
+
+
+}
+"
+graph_offset = Vector2(605.318, -309.368)
+mode = 1
+flags/light_only = false
+nodes/vertex/0/position = Vector2(1140, -360)
+nodes/vertex/3/node = SubResource("VisualShaderNodeInput_kc0yt")
+nodes/vertex/3/position = Vector2(-1040, -160)
+nodes/vertex/4/node = SubResource("VisualShaderNodeVectorOp_d65s7")
+nodes/vertex/4/position = Vector2(-720, -220)
+nodes/vertex/7/node = SubResource("VisualShaderNodeFloatFunc_k0red")
+nodes/vertex/7/position = Vector2(-680, -1080)
+nodes/vertex/8/node = SubResource("VisualShaderNodeFloatFunc_qy6r8")
+nodes/vertex/8/position = Vector2(-420, -900)
+nodes/vertex/24/node = SubResource("VisualShaderNodeFloatOp_bkntq")
+nodes/vertex/24/position = Vector2(80, -720)
+nodes/vertex/29/node = SubResource("VisualShaderNodeFloatParameter_8ltjx")
+nodes/vertex/29/position = Vector2(-840, -620)
+nodes/vertex/30/node = SubResource("VisualShaderNodeVectorOp_20cxa")
+nodes/vertex/30/position = Vector2(-420, -400)
+nodes/vertex/31/node = SubResource("VisualShaderNodeVectorDecompose_faqio")
+nodes/vertex/31/position = Vector2(-220, -440)
+nodes/vertex/32/node = SubResource("VisualShaderNodeVectorCompose_switl")
+nodes/vertex/32/position = Vector2(900, -440)
+nodes/vertex/36/node = SubResource("VisualShaderNodeFloatFunc_v5erp")
+nodes/vertex/36/position = Vector2(-240, -900)
+nodes/vertex/37/node = SubResource("VisualShaderNodeSwitch_1dxpn")
+nodes/vertex/37/position = Vector2(460, -740)
+nodes/vertex/38/node = SubResource("VisualShaderNodeCompare_s4cnl")
+nodes/vertex/38/position = Vector2(-120, -1140)
+nodes/vertex/39/node = SubResource("VisualShaderNodeFloatOp_3n0fr")
+nodes/vertex/39/position = Vector2(680, -540)
+nodes/vertex/40/node = SubResource("VisualShaderNodeFloatOp_7ghts")
+nodes/vertex/40/position = Vector2(280, -580)
+nodes/vertex/41/node = SubResource("VisualShaderNodeFloatOp_lc8iw")
+nodes/vertex/41/position = Vector2(80, -580)
+nodes/vertex/42/node = SubResource("VisualShaderNodeFloatParameter_cnada")
+nodes/vertex/42/position = Vector2(-980, -1080)
+nodes/vertex/connections = PackedInt32Array(3, 0, 4, 0, 7, 0, 8, 0, 4, 0, 30, 1, 29, 0, 30, 0, 30, 0, 31, 0, 31, 1, 32, 1, 32, 0, 0, 0, 8, 0, 36, 0, 31, 0, 24, 1, 7, 0, 38, 0, 38, 0, 37, 0, 24, 0, 37, 1, 39, 0, 32, 0, 36, 0, 24, 0, 24, 0, 40, 0, 40, 0, 37, 2, 36, 0, 41, 0, 41, 0, 40, 1, 29, 0, 41, 1, 42, 0, 7, 0, 37, 0, 39, 0, 31, 0, 39, 1)
+nodes/fragment/0/position = Vector2(4420, -40)
+nodes/fragment/2/node = SubResource("VisualShaderNodeInput_kbdu6")
+nodes/fragment/2/position = Vector2(-1740, 80)
+nodes/fragment/5/node = SubResource("VisualShaderNodeSwitch_s573r")
+nodes/fragment/5/position = Vector2(1460, -220)
+nodes/fragment/7/node = SubResource("VisualShaderNodeFloatParameter_q8lyt")
+nodes/fragment/7/position = Vector2(-740, 360)
+nodes/fragment/8/node = SubResource("VisualShaderNodeExpression_lojpl")
+nodes/fragment/8/position = Vector2(-220, 220)
+nodes/fragment/8/size = Vector2(1133.25, 903.719)
+nodes/fragment/8/input_ports = "0,3,uv;1,0,segment_width;2,0,segment_offset_ratio;"
+nodes/fragment/8/output_ports = "0,6,is_in_segment_a;1,6,is_in_segment_b;2,6,is_in_segment_c;3,6,is_in_segment_d;4,6,is_in_segment_e;5,6,is_in_segment_f;6,6,is_in_segment_g;"
+nodes/fragment/8/expression = "vec2 ratio = vec2(3.0, 5.0);
+vec2 ratio_normalized = vec2(1.0, ratio.y/ratio.x);
+
+float segment_offset = (1.0 + segment_offset_ratio) * segment_width / 2.0;
+float segment_length = 2.0/3.0 - 2.0 * segment_offset;
+
+vec2 p1 = vec2(0.5, 0.5) / ratio;
+vec2 p2 = vec2(2.5, 0.5) / ratio;
+vec2 p3 = vec2(0.5, 2.5) / ratio;
+vec2 p4 = vec2(2.5, 2.5) / ratio;
+vec2 p5 = vec2(0.5, 4.5) / ratio;
+vec2 p6 = vec2(2.5, 4.5) / ratio;
+
+vec2 h_offset = vec2(segment_offset, 0.0) / ratio_normalized;
+vec2 v_offset = vec2(0.0, segment_offset) / ratio_normalized;
+
+is_in_segment_a = in_horizontal_segment(uv, p1 + h_offset, segment_length, segment_width, ratio_normalized);
+is_in_segment_b = in_vertical_segment(uv, p2 + v_offset, segment_length, segment_width, ratio_normalized);
+is_in_segment_c = in_vertical_segment(uv, p4 + v_offset, segment_length, segment_width, ratio_normalized);
+is_in_segment_d = in_horizontal_segment(uv, p5 + h_offset, segment_length, segment_width, ratio_normalized);
+is_in_segment_e = in_vertical_segment(uv, p3 + v_offset, segment_length, segment_width, ratio_normalized);
+is_in_segment_f = in_vertical_segment(uv, p1 + v_offset, segment_length, segment_width, ratio_normalized);
+is_in_segment_g = in_horizontal_segment(uv, p3 + h_offset, segment_length, segment_width, ratio_normalized);
+"
+nodes/fragment/9/node = SubResource("VisualShaderNodeSwitch_6dxnb")
+nodes/fragment/9/position = Vector2(1460, -40)
+nodes/fragment/13/node = SubResource("VisualShaderNodeSwitch_xdghs")
+nodes/fragment/13/position = Vector2(1460, 160)
+nodes/fragment/16/node = SubResource("VisualShaderNodeSwitch_7d5sb")
+nodes/fragment/16/position = Vector2(1460, 340)
+nodes/fragment/18/node = SubResource("VisualShaderNodeSwitch_ssfrr")
+nodes/fragment/18/position = Vector2(1460, 540)
+nodes/fragment/20/node = SubResource("VisualShaderNodeSwitch_7t6rn")
+nodes/fragment/20/position = Vector2(1460, 720)
+nodes/fragment/23/node = SubResource("VisualShaderNodeSwitch_avubb")
+nodes/fragment/23/position = Vector2(1460, 920)
+nodes/fragment/37/node = SubResource("VisualShaderNodeFloatFunc_5t6g6")
+nodes/fragment/37/position = Vector2(-1540, 400)
+nodes/fragment/46/node = SubResource("VisualShaderNodeExpression_ikl6q")
+nodes/fragment/46/position = Vector2(-1320, 220)
+nodes/fragment/46/size = Vector2(529.168, 571.962)
+nodes/fragment/46/input_ports = "0,3,uv;1,0,theta;"
+nodes/fragment/46/output_ports = "0,3,uv_skewed;"
+nodes/fragment/46/expression = "float x_stretched = uv.x;
+float y_flipped = 1.0 - uv.y;
+
+float alpha = abs(sin(theta));
+
+if (theta >= 0.0) {
+	x_stretched += uv.x * alpha;
+}
+else {
+	x_stretched += (uv.x - 1.0) * alpha;
+}
+
+vec2 uv_stretched = vec2(x_stretched, y_flipped);
+
+uv_skewed = skewed_uv(uv_stretched, theta);
+
+uv_skewed.y = 1.0 - uv_skewed.y;"
+nodes/fragment/51/node = SubResource("VisualShaderNodeColorParameter_j24p0")
+nodes/fragment/51/position = Vector2(3500, 840)
+nodes/fragment/52/node = SubResource("VisualShaderNodeColorParameter_y1026")
+nodes/fragment/52/position = Vector2(2880, -580)
+nodes/fragment/53/node = SubResource("VisualShaderNodeColorParameter_ajhdt")
+nodes/fragment/53/position = Vector2(2880, -280)
+nodes/fragment/54/node = SubResource("VisualShaderNodeExpression_i3xm2")
+nodes/fragment/54/position = Vector2(2060, 740)
+nodes/fragment/54/size = Vector2(1268.46, 388.266)
+nodes/fragment/54/input_ports = "0,6,is_in_segment_a;1,6,is_in_segment_b;2,6,is_in_segment_c;3,6,is_in_segment_d;4,6,is_in_segment_e;5,6,is_in_segment_f;6,6,is_in_segment_g;"
+nodes/fragment/54/output_ports = "0,6,is_in_segments;"
+nodes/fragment/54/expression = "is_in_segments = any_7(is_in_segment_a, is_in_segment_b, is_in_segment_c, is_in_segment_d, is_in_segment_e, is_in_segment_f, is_in_segment_g);"
+nodes/fragment/55/node = SubResource("VisualShaderNodeSwitch_wmsa4")
+nodes/fragment/55/position = Vector2(4080, -220)
+nodes/fragment/56/node = SubResource("VisualShaderNodeSwitch_6dre2")
+nodes/fragment/56/position = Vector2(4060, 160)
+nodes/fragment/57/node = SubResource("VisualShaderNodeIntParameter_bsev0")
+nodes/fragment/57/position = Vector2(-40, -820)
+nodes/fragment/58/node = SubResource("VisualShaderNodeBooleanParameter_362bo")
+nodes/fragment/58/position = Vector2(-40, -500)
+nodes/fragment/61/node = SubResource("VisualShaderNodeExpression_7da2h")
+nodes/fragment/61/position = Vector2(320, -720)
+nodes/fragment/61/size = Vector2(587.246, 827.926)
+nodes/fragment/61/input_ports = "0,1,number;1,6,segments_on;"
+nodes/fragment/61/output_ports = "0,6,segment_a_on;1,6,segment_b_on;2,6,segment_c_on;3,6,segment_d_on;4,6,segment_e_on;5,6,segment_f_on;6,6,segment_g_on;"
+nodes/fragment/61/expression = "segment_a_on = false;
+segment_b_on = false;
+segment_c_on = false;
+segment_d_on = false;
+segment_e_on = false;
+segment_f_on = false;
+segment_g_on = false;
+
+if (!segments_on) {
+	// no operaiton
+}
+else {
+	switch(number) {
+		case 0:
+			segment_a_on = true;
+			segment_b_on = true;
+			segment_c_on = true;
+			segment_d_on = true;
+			segment_e_on = true;
+			segment_f_on = true;
+			break;
+		case 1:
+			segment_b_on = true;
+			segment_c_on = true;
+			break;
+		case 2:
+			segment_a_on = true;
+			segment_b_on = true;
+			segment_d_on = true; 
+			segment_e_on = true;
+			segment_g_on = true;
+			break;
+		case 3:
+			segment_a_on = true;
+			segment_b_on = true;
+			segment_c_on = true;
+			segment_d_on = true;
+			segment_g_on = true;
+			break;
+		case 4:
+			segment_b_on = true;
+			segment_c_on = true;
+			segment_f_on = true;
+			segment_g_on = true;
+			break;
+		case 5:
+			segment_a_on = true;
+			segment_c_on = true;
+			segment_d_on = true;
+			segment_f_on = true;
+			segment_g_on = true;
+			break;
+		case 6:
+			segment_a_on = true;
+			segment_c_on = true;
+			segment_d_on = true;
+			segment_e_on = true;
+			segment_f_on = true;
+			segment_g_on = true;
+			break;
+		case 7:
+			segment_a_on = true;
+			segment_b_on = true;
+			segment_c_on = true;
+			break;
+		case 8:
+			segment_a_on = true;
+			segment_b_on = true;
+			segment_c_on = true;
+			segment_d_on = true;
+			segment_e_on = true;
+			segment_f_on = true;
+			segment_g_on = true;
+			break;
+		case 9:
+			segment_a_on = true;
+			segment_b_on = true;
+			segment_c_on = true;
+			segment_d_on = true;
+			segment_f_on = true;
+			segment_g_on = true;
+			break;
+	}
+}"
+nodes/fragment/62/node = SubResource("VisualShaderNodeExpression_dqja1")
+nodes/fragment/62/position = Vector2(2060, 220)
+nodes/fragment/62/size = Vector2(1267.32, 389.429)
+nodes/fragment/62/input_ports = "0,6,is_in_segment_a;1,6,is_in_segment_b;2,6,is_in_segment_c;3,6,is_in_segment_d;4,6,is_in_segment_e;5,6,is_in_segment_f;6,6,is_in_segment_g;"
+nodes/fragment/62/output_ports = "0,6,is_in_segments;"
+nodes/fragment/62/expression = "is_in_segments = any_7(is_in_segment_a, is_in_segment_b, is_in_segment_c, is_in_segment_d, is_in_segment_e, is_in_segment_f, is_in_segment_g);"
+nodes/fragment/63/node = SubResource("VisualShaderNodeSwitch_muob1")
+nodes/fragment/63/position = Vector2(3700, -200)
+nodes/fragment/64/node = SubResource("VisualShaderNodeSwitch_hpnfx")
+nodes/fragment/64/position = Vector2(3720, 80)
+nodes/fragment/72/node = SubResource("VisualShaderNodeFloatParameter_dwkm1")
+nodes/fragment/72/position = Vector2(-740, 680)
+nodes/fragment/73/node = SubResource("VisualShaderNodeComment_37rar")
+nodes/fragment/73/position = Vector2(2040, -540)
+nodes/fragment/74/node = SubResource("VisualShaderNodeGlobalExpression_nh4pq")
+nodes/fragment/74/position = Vector2(-1200, -700)
+nodes/fragment/74/size = Vector2(962.171, 786.656)
+nodes/fragment/74/input_ports = ""
+nodes/fragment/74/output_ports = ""
+nodes/fragment/74/expression = "// The include directive does not work correctly in visual shader.
+//#include \"segment_number_utils.gdshaderinc\"
+
+vec2 skewed_uv(vec2 uv, float theta) {
+	float x = uv.x - uv.y * tan(theta);
+	float y = uv.y / cos(theta);
+	return vec2(x,y);
+}
+
+vec2 rotated_uv(vec2 uv, float theta) {
+	float x = uv.x * cos(theta) - uv.y * sin(theta);
+	float y = uv.x * sin(theta) + uv.y * cos(theta);
+	return vec2(x,y);	
+}
+
+bool in_hline(vec2 st, float len, float width) {
+	bool is_in_hline = false;
+	if (st.x >= 0.0 && st.x <= len && st.y >= -width/2.0 && st.y <= width/2.0) {
+		is_in_hline = true;
+	}
+	return is_in_hline;
+}
+
+bool in_vline(vec2 st, float len, float width) {
+	bool is_in_vline = false;
+	if (st.y >= 0.0 && st.y <= len && st.x >= -width/2.0 && st.x <= width/2.0) {
+		is_in_vline = true;
+	}
+	return is_in_vline;
+}
+
+bool in_triangle(vec2 st, float theta, float width) {
+	bool is_in_triangle = false;
+	vec2 st_rotated = rotated_uv(st, theta);
+	float tri_width = abs(st_rotated.x - width/2.0) ;
+	if (st_rotated.x >= 0.0 && st_rotated.x <= width/2.0 
+		&& st_rotated.y >= - tri_width && st_rotated.y <= tri_width) {
+		is_in_triangle = true;	
+	}
+	return is_in_triangle;
+}
+
+bool in_horizontal_segment(vec2 uv, vec2 p0, float len, float width, vec2 ratio) {
+	bool is_in_segment = false;
+	
+	vec2 st = (uv - p0) * ratio;
+	is_in_segment = is_in_segment || in_hline(st, len, width);
+	is_in_segment = is_in_segment || in_triangle(st, -PI, width);
+	is_in_segment = is_in_segment || in_triangle(st - vec2(len, 0.0), 0.0, width);
+	
+	return is_in_segment;	
+}
+
+bool in_vertical_segment(vec2 uv, vec2 p0, float len, float width, vec2 ratio) {
+	bool is_in_segment = false;
+	
+	vec2 st = (uv - p0) * ratio;
+	is_in_segment = is_in_segment || in_vline(st, len, width);
+	is_in_segment = is_in_segment || in_triangle(st, PI/2.0, width);
+	is_in_segment = is_in_segment || in_triangle(st - vec2(0.0, len), -PI/2.0, width);
+	
+	return is_in_segment;	
+}
+
+bool any_7(bool s1, bool s2, bool s3, bool s4, bool s5, bool s6, bool s7) {
+	return s1 || s2 || s3 || s4 || s5 || s6 || s7;
+}
+"
+nodes/fragment/75/node = SubResource("VisualShaderNodeParameterRef_4hf7u")
+nodes/fragment/75/position = Vector2(-1800, 400)
+nodes/fragment/connections = PackedInt32Array(8, 0, 5, 0, 7, 0, 8, 1, 8, 1, 9, 0, 8, 2, 13, 0, 8, 3, 16, 0, 8, 4, 18, 0, 8, 5, 20, 0, 8, 6, 23, 0, 37, 0, 46, 1, 8, 0, 54, 0, 8, 1, 54, 1, 8, 2, 54, 2, 8, 3, 54, 3, 8, 4, 54, 4, 8, 5, 54, 5, 8, 6, 54, 6, 54, 0, 55, 0, 51, 0, 55, 2, 54, 0, 56, 0, 51, 4, 56, 2, 55, 0, 0, 0, 56, 0, 0, 1, 58, 0, 61, 1, 57, 0, 61, 0, 61, 0, 5, 1, 61, 1, 9, 1, 61, 2, 13, 1, 61, 3, 16, 1, 61, 4, 18, 1, 61, 5, 20, 1, 61, 6, 23, 1, 5, 0, 62, 0, 9, 0, 62, 1, 13, 0, 62, 2, 16, 0, 62, 3, 18, 0, 62, 4, 20, 0, 62, 5, 23, 0, 62, 6, 62, 0, 63, 0, 62, 0, 64, 0, 52, 0, 63, 1, 53, 0, 63, 2, 52, 4, 64, 1, 53, 4, 64, 2, 64, 0, 56, 1, 63, 0, 55, 1, 2, 0, 46, 0, 46, 0, 8, 0, 72, 0, 8, 2, 75, 0, 37, 0)
