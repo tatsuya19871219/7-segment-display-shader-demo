@@ -18,3 +18,5 @@ mono_crash.*.json
 #
 .vs/VSWorkspaceState.json
 .vs/7-segment-display-shader-demo/v17/.wsuo
+note/note.pdf
+note/7seg_note.svg
